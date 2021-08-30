@@ -1,12 +1,13 @@
 ---
 import BaseHead from '$/components/BaseHead.astro'
+import BaseLayout from '$/components/BaseLayout.astro'
 import Intro from '$/components/Intro.astro'
 ---
 <html>
   <head>
     <BaseHead title="Astro Ink | Home" />
   </head>
-  <body class="font-sans antialiased">
+  <BaseLayout>
     <Intro/>
-  </body>
+  </BaseLayout>
 </html>
