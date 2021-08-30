@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import MainLayout from '../components/MainLayout.astro';
+
+const { content, showPageHeader = true } = Astro.props
+---
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={content.title ? `Astro - Ink | ${content.title}` : ''} description={content.description}/>
+    </head>
+    <MainLayout>
+        {showPageHeader &&
+            <div class="page__header">
+                <h1 class="page__title">{content.title}</h1>
+                <h5 class="page__desc">{content.description}</h5>
+            </div>
+        }
+        <slot />
+    </MainLayout>
+</html>
+<style>
+    .page__header {
+        @apply py-4 mb-1
+    }
+    .page__title {
+        @apply text-5xl font-extrabold text-primary dark:text-primaryDark
+    }
+    .page__desc {
+        @apply text-gray-400
+    }
+</style>

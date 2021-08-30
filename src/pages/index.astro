@@ -1,13 +1,11 @@
 ---
-import BaseHead from '$/components/BaseHead.astro'
-import MainLayout from '$/components/MainLayout.astro'
+import DefaultPageLayout from '$/layouts/default.astro'
 import Intro from '$/components/Intro.astro'
+
+const title = 'Home'
+const description = 'Astro-Ink is a crisp, minimal, personal blog theme for Astro'
+
 ---
-<html>
-  <head>
-    <BaseHead title="Astro Ink | Home" />
-  </head>
-  <MainLayout>
+<DefaultPageLayout content={{ title, description }} showPageHeader={false}>
     <Intro/>
-  </MainLayout>
-</html>
+</DefaultPageLayout>

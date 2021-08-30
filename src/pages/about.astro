@@ -1,19 +1,10 @@
 ---
-import BaseHead from '$/components/BaseHead.astro'
-import MainLayout from '$/components/MainLayout.astro'
+import DefaultPageLayout from '$/layouts/default.astro'
+
 const title = 'About';
 const description = 'There\'s a simple secret to building a faster website — just ship less.';
 ---
-<html>
-  <head>
-    <BaseHead title={`Astro Ink | ${title}`} description={description} />
-  </head>
-  <MainLayout>
-    <div class="page__header mb-6">
-        <h1 class="page__title">{title}</h1>
-        <h5 class="page__desc">{description}</h5>
-    </div>
-
+<DefaultPageLayout content={{ title, description }}>
     <article class="page__content prose lg:prose-md max-w-none dark:text-white">
         <p>
             Astro-Ink is a crisp, minimal, personal blog theme for Astro, that shows the capability of statically built sites - offering all the goodness and DX of the modern JS ecosystem without actually shipping any JS by default. It's built by...
@@ -28,20 +19,9 @@ const description = 'There\'s a simple secret to building a faster website — j
             </div>
         </div>
     </article>
-
-  </MainLayout>
-</html>
+</DefaultPageLayout>
 
 <style>
-    .page__header {
-        @apply py-4 mb-1
-    }
-    .page__title {
-        @apply text-5xl font-extrabold text-primary dark:text-primaryDark
-    }
-    .page__desc {
-        @apply text-gray-400
-    }
     .author {
         @apply flex flex-col w-full
     }
