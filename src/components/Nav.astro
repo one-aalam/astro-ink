@@ -1,0 +1,28 @@
+---
+import { toTitleCase } from '$/utils'
+
+const NAV_ITEMS: NavItems = {
+    home: {
+        path: '/',
+        title: 'home'
+    },
+    about: {
+        path: '/about',
+        title: 'about'
+    }
+}
+---
+<nav class="nav py-3">
+    <ul class="nav-list">
+         {
+            Object.keys(NAV_ITEMS).map(navItemKey => <li>
+                <a class="hover:underline" href={NAV_ITEMS[navItemKey].path} title={NAV_ITEMS[navItemKey].title}>{toTitleCase(NAV_ITEMS[navItemKey].title)}</a>
+            </li>)
+        }
+    </ul>
+</nav>
+<style>
+    .nav-list {
+        @apply inline-flex list-none gap-8 text-xl font-semibold text-primarySecondary dark:text-primarySecondaryDark py-2
+    }
+</style>
