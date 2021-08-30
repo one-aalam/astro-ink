@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "moduleResolution": "node",
+      "module": "es2020",
+      "lib": ["es2020"],
+      "target": "es2019",
+      "importsNotUsedAsValues": "error",
+      "isolatedModules": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": ".",
+      "allowJs": true,
+      "checkJs": true
+    },
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"]
+}
