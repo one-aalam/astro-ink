@@ -6,6 +6,10 @@ console.log('See me in the Terminal')
 
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,11 +27,19 @@ console.log('See me in the Terminal')
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/browserconfig.xml"/>
     <meta name="theme-color" content="#ffffff" />
+    <!-- Link to the global style, or the file that imports TailwindCSS constructs -->
+    <link rel="stylesheet" href="/style/global.css">
   </head>
-  <body>
+  <body class="font-sans antialiased">
     <h1 class="h1">Hello, World!</h1>
   </body>
 </html>
+
+<style>
+    h1 {
+      @apply w-full justify-center text-center text-3xl font-bold text-purple-600 py-10
+    }
+</style>
 
 <script>
  // JS Code entered here is ran entirely on the Browser
