@@ -1,4 +1,5 @@
 ---
+import Markdown from 'astro/components'
 import DefaultPageLayout from '$/layouts/default.astro'
 
 const title = 'About';
@@ -6,18 +7,19 @@ const description = 'There\'s a simple secret to building a faster website — j
 ---
 <DefaultPageLayout content={{ title, description }}>
     <article class="page__content prose lg:prose-md max-w-none dark:text-white">
-        <p>
+        <Markdown>
             Astro-Ink is a crisp, minimal, personal blog theme for Astro, that shows the capability of statically built sites - offering all the goodness and DX of the modern JS ecosystem without actually shipping any JS by default. It's built by...
-        </p>
-        <h3>Few Bots, Meta-humans & a Guy!</h3>
-        <div class="author">
-            <img class="rounded-full" width="160" src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5358878e2493fbea064dd9_peep-59.svg" title="Aalam" />
-            <div>
-                Aftab Alam //
-                <a href="https://twitter.com/aftabbuddy" title="Author's Twitter Handle">@aftabbuddy</a> //
-                <a href="https://github.com/one-aalam" title="Author's Github URL">one-aalam</a>
+
+            ## Few Bots, Meta-humans & a Guy!
+            <div class="author">
+                <img class="rounded-full" width="160" src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5358878e2493fbea064dd9_peep-59.svg" title="Aalam" />
+                <div>
+                    Aftab Alam //
+                    [@aftabbuddy](https://twitter.com/aftabbuddy)  //
+                    [one-aalam](https://github.com/one-aalam)
+                </div>
             </div>
-        </div>
+        </Markdown>
     </article>
 </DefaultPageLayout>
 
