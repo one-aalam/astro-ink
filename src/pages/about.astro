@@ -1,12 +1,13 @@
 ---
 import Markdown from 'astro/components'
 import DefaultPageLayout from '$/layouts/default.astro'
+import Prose from '$/components/Prose.astro'
 
 const title = 'About';
 const description = 'There\'s a simple secret to building a faster website — just ship less.';
 ---
 <DefaultPageLayout content={{ title, description }}>
-    <article class="page__content prose lg:prose-md max-w-none dark:text-white">
+    <Prose>
         <Markdown>
             Astro-Ink is a crisp, minimal, personal blog theme for Astro, that shows the capability of statically built sites - offering all the goodness and DX of the modern JS ecosystem without actually shipping any JS by default. It's built by...
 
@@ -20,7 +21,7 @@ const description = 'There\'s a simple secret to building a faster website — j
                 </div>
             </div>
         </Markdown>
-    </article>
+    </Prose>
 </DefaultPageLayout>
 
 <style>
