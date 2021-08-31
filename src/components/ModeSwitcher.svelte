@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte'
+    import { theme } from '../store/theme'
 
     type ThemeType = 'dark' | 'light'
 
@@ -11,7 +12,10 @@
     function toggleTheme() {
         window.document.body.classList.toggle(THEME_DARK)
         currTheme = localStorage.getItem('theme') === THEME_DARK ? THEME_LIGHT : THEME_DARK
+        // Update Storage
         localStorage.setItem('theme', currTheme)
+        // Update Store
+        theme.set(currTheme)
     }
 
     onMount(() => {
@@ -22,6 +26,8 @@
             window.document.body.classList.remove(THEME_DARK)
             currTheme = THEME_LIGHT
         }
+        // Update Store
+        theme.set(currTheme)
     })
 </script>
 <button on:click={toggleTheme}>
