@@ -1,0 +1,12 @@
+---
+import DefaultPageLayout from '$/layouts/default.astro'
+import PostPreviewList from '$/components/PostPreviewList.astro'
+
+let title = 'Blog';
+let description = 'All the articles posted so far...'
+
+const posts = Astro.fetchContent('./blog/*.md')
+---
+<DefaultPageLayout content={{ title, description }}>
+    <PostPreviewList posts={posts} />
+</DefaultPageLayout>
