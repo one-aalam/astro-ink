@@ -1,6 +1,9 @@
+---
+    import { SITE } from '$/config'
+---
 <div class="footer">
     <nav class="nav">
-        <div>2021  &copy; Copyright notice |  <a href="https://github.com/one-aalam/astro-ink">Ink</a> theme on <a href="https://astro.build/">Astro</a></div>
+        <div>2021  &copy; Copyright notice |  <a href={ SITE.githubUrl } title={`${ SITE.name }'s Github URL'`}>{ SITE.name }</a> theme on <a href="https://astro.build/">Astro</a></div>
     </nav>
 </div>
 <style>

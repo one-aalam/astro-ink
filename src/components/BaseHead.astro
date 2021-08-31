@@ -1,4 +1,6 @@
 ---
+    import { SITE } from '$/config'
+
     export type Props = {
         title: string
         description: string
@@ -6,7 +8,7 @@
         image: string
     }
 
-    const { title = 'Astro - Ink', description, permalink, image } = Astro.props as Props
+    const { title = SITE.title , description, permalink, image } = Astro.props as Props
 ---
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
