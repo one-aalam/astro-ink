@@ -1,13 +1,14 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import MainLayout from '../components/MainLayout.astro';
+import { SITE } from '$/config'
+import BaseHead from '$/components/BaseHead.astro';
+import MainLayout from '$/components/MainLayout.astro';
 
 const { content, showPageHeader = true } = Astro.props
 ---
 <!doctype html>
 <html lang="en">
     <head>
-        <BaseHead title={content.title ? `Astro - Ink | ${content.title}` : ''} description={content.description}/>
+        <BaseHead title={ content.title ? `${ SITE.title } | ${content.title}` : SITE.title } description={ content.description }/>
     </head>
     <MainLayout>
         {showPageHeader &&
