@@ -1,0 +1,28 @@
+---
+import Markdown from 'astro/components'
+import DefaultPageLayout from '$/layouts/default.astro'
+
+let title = 'All Tags'
+let description = 'All the tags used so far...'
+
+
+const allPosts = await Astro.fetchContent('../blog/*.md');
+const tags = [...new Set([].concat.apply([], allPosts.map(post => post.tags)))]
+---
+
+<DefaultPageLayout content={{ title, description }}>
+    <ul class="tag-list">
+     {tags.map((tag) => (
+        <li><a class="tag" href={`/tags/${tag}`} title={`View posts tagged under "${tag}"`}>{tag}</a></li>
+    ))}
+    </ul>
+</DefaultPageLayout>
+
+<style>
+    .tag-list {
+        @apply list-none flex gap-2
+    }
+    .tag {
+        @apply inline-block text-xl px-4 py-1 rounded-full text-primary bg-primaryDark dark:bg-primary dark:text-primaryDark hover:bg-primary hover:text-primaryDark dark:hover:bg-primaryDark dark:hover:text-primary
+    }
+</style>

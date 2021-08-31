@@ -1,0 +1,34 @@
+---
+import Markdown from 'astro/components'
+import DefaultPageLayout from '$/layouts/default.astro'
+import PostPreviewList from '$/components/PostPreviewList.astro'
+
+let title = 'Posts By Tags'
+let description = 'All the articles posted so far...'
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = Astro.fetchContent('../../blog/*.md')
+  const allTags = new Set()
+  allPosts.map(post => {
+      post.tags && post.tags.map(tag => allTags.add(tag.toLowerCase()))
+  })
+
+  return Array.from(allTags).map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.tags.includes(tag))
+    return paginate(filteredPosts, {
+      params: { tag },
+      pageSize: 2
+    });
+  });
+}
+
+const { page } = Astro.props
+const { params } = Astro.request
+---
+
+<DefaultPageLayout content={{ title, description }}>
+    <Markdown>
+        This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
+    </Markdown>
+    <PostPreviewList posts={page.data} />
+</DefaultPageLayout>

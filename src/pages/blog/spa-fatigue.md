@@ -7,7 +7,6 @@ author: Tom MacWright
 authorTwitter: tmcw
 category: design
 tags:
-- color
 - typography
 description: There is a sweet spot of React - in moderately interactive interfaces..
 ---
