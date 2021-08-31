@@ -32,3 +32,5 @@ export const SITE = {
     githubUrl: 'https://github.com/one-aalam/astro-ink'
     // description ?
 }
+
+export const PAGE_SIZE = 8

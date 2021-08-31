@@ -1,5 +1,6 @@
 ---
 import Markdown from 'astro/components'
+import { PAGE_SIZE } from '$/config'
 import DefaultPageLayout from '$/layouts/default.astro'
 import PostPreviewList from '$/components/PostPreviewList.astro'
 
@@ -17,7 +18,7 @@ export async function getStaticPaths({ paginate }) {
     const filteredPosts = allPosts.filter((post) => post.tags.includes(tag))
     return paginate(filteredPosts, {
       params: { tag },
-      pageSize: 2
+      pageSize: PAGE_SIZE
     });
   });
 }
@@ -26,9 +27,19 @@ const { page } = Astro.props
 const { params } = Astro.request
 ---
 
-<DefaultPageLayout content={{ title, description }}>
-    <Markdown>
-        This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
-    </Markdown>
+<DefaultPageLayout content={{ title: `Posts by Tag: ${params.tag}`, description: `all of the articles we've posted and linked so far under the tag: ${params.tag}` }}>
     <PostPreviewList posts={page.data} />
+    <div class="page__actions">
+        {page.url.prev && <a class="action__go-to-x" href={page.url.prev} title="Go to Previous">&larr; Prev</a>}
+        {page.url.next && <a class="action__go-to-x" href={page.url.next} title="Go to Next">Next &rarr;</a>}
+    </div>
 </DefaultPageLayout>
+
+<style>
+    .page__actions {
+        @apply flex justify-center md:justify-end py-6 gap-2
+    }
+    .action__go-to-x {
+        @apply text-base uppercase text-gray-500 dark:text-gray-400 hover:underline
+    }
+</style>
