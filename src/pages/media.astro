@@ -7,8 +7,9 @@ let title = 'Videos & Screencasts';
 let description = 'All the great videos on Astro we could find for ya!'
 
 const response = await fetch('https://raw.githubusercontent.com/one-aalam/astro-ink/main/src/data/astro-media.json')
-const posts = await response.json()
+const allPosts = await response.json()
+const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
 ---
 <DefaultPageLayout content={{ title, description }}>
-    <MediaPreviewList posts={posts} />
+    <MediaPreviewList posts={sortedPosts} />
 </DefaultPageLayout>
