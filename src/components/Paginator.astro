@@ -1,0 +1,15 @@
+---
+const { page } = Astro.props
+---
+<div class="page__actions">
+    {page.url.prev && <a class="action__go-to-x" href={page.url.prev} title="Go to Previous">&larr; Prev</a>}
+    {page.url.next && <a class="action__go-to-x" href={page.url.next} title="Go to Next">Next &rarr;</a>}
+</div>
+<style>
+    .page__actions {
+        @apply flex justify-center md:justify-end py-6 gap-2
+    }
+    .action__go-to-x {
+        @apply text-base uppercase text-gray-500 dark:text-gray-400 hover:underline
+    }
+</style>
