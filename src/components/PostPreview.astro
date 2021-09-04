@@ -3,7 +3,7 @@ const { post } = Astro.props
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', "Nov", 'Dec']
 ---
 <div class="post-preview">
-    <div class="w-32">
+    <div class="sm:w-20 md:w-32">
         <div class="post-preview__date">
             <span class="post-preview__date__day">{ new Date(post.date).getDate() }</span>
             <span class="post-preview__date__month-n-year">{ `${MONTHS[new Date(post.date).getMonth()]} ${new Date(post.date).getFullYear()}` }</span>
