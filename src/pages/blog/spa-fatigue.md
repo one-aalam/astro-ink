@@ -7,7 +7,9 @@ author: Tom MacWright
 authorTwitter: tmcw
 category: design
 tags:
-- typography
+- Architecture
+- Frontend
+- SPA
 description: There is a sweet spot of React - in moderately interactive interfaces..
 ---
 https://macwright.com/2020/05/10/spa-fatigue.html
