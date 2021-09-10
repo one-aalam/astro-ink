@@ -15,3 +15,11 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 - __Modular__ - The structure is highly modular, with components doing just one job, and one job well.
 - __Collection + Dynamic Pages__ - It's ready with Next.js like dynamic pages, to support a tag-based classification system with paginated results, all configurable
 - __Dark Mode & Color Codes (beta)__ - It supports dark mode, and 6+ color modes that could be configured using `tailwind.config.js`. Remember to restart when developing, and enable just one group of colors at a time. To customize the blog section, add any of the Tailwind Typography's `prose-{color}` classes as referred [here](./src/components/Prose.astro)
+
+## Wanna learn Astro while building Ink?
+Head over to `aalam.in/blog` and learn
+- [How to set Astro up and get it running with essential defaults for styling, prototyping, and incremental deployments](https://aalam.in/blog/astro-get-up-and-running)
+- [Managing presentational components and creating Astro pages](https://aalam.in/blog/astro-and-site-strcuture)
+- [Feeding local as well as remote data to the Astro pages](https://aalam.in/blog/astro-and-data)
+- [Putting interactivity where you absolutely cannot do without it in Astro](https://aalam.in/blog/astro-and-interactivity)
+- [Creating data-driven, dynamic pages and paginated results in Astro](https://aalam.in/blog/astro-and-dynamic-pages)
