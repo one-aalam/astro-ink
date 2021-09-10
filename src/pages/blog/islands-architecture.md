@@ -7,10 +7,10 @@ author: Jason Miller
 authorTwitter: _developit
 category: development
 tags:
-- Astro
-- JAMStack
-- Architecture
-- Frontend
+- astro
+- jam-stack
+- architecture
+- front-end
 description: Render HTML pages on the server, and inject placeholders or slots around highly dynamic regions.
 ---
 
