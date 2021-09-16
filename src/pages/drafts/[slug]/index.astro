@@ -1,0 +1,36 @@
+---
+import { getSlugFromPathname } from '$/utils'
+
+import PostDraftPageLayout from '$/layouts/post-draft.astro'
+
+export async function getStaticPaths({ }) {
+  const allPosts = Astro.fetchContent('../../../drafts/*.md')
+    const allSlugs = new Set()
+    const allPostsWithSlug = allPosts.map(post => {
+        // @ts-ignore
+        const slug = getSlugFromPathname(post.file.pathname)
+        allSlugs.add(slug.toLowerCase())
+        return {
+            ...post,
+            slug
+        }
+    })
+
+    return Array.from(allSlugs).map((slug) => {
+        const filteredPosts = allPostsWithSlug.filter((post) => post.slug === slug )
+        return {
+            params: { slug },
+            props: {
+                pages: filteredPosts
+            }
+        };
+    });
+}
+
+const { pages } = Astro.props
+const { params } = Astro.request
+const html = `${pages[0].astro.html}`.replace(/\n/ig, '')
+---
+<PostDraftPageLayout content={pages[0]}>
+    {html}
+</PostDraftPageLayout>

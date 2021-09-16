@@ -1,0 +1,40 @@
+---
+import { getMonthName, getSlugFromPathname } from '$/utils'
+const { post } = Astro.props
+---
+<div class="post-draft-preview">
+    <div class="sm:w-20 md:w-32">
+        <div class="post-draft-preview__date">
+            <span class="post-draft-preview__date__day">{ new Date(post.date).getDate() }</span>
+            <span class="post-draft-preview__date__month-n-year">{ `${getMonthName(post.date)} ${new Date(post.date).getFullYear()}` }</span>
+        </div>
+    </div>
+    <div class="flex-1">
+        <h4 class="post-draft-preview__title">
+            <a href={`/drafts/${getSlugFromPathname(post.file.pathname)}`} title={post.title}>{post.title}</a>
+        </h4>
+        <p class="post-draft-preview__desc">
+            {post.description}
+        </p>
+    </div>
+</div>
+<style>
+    .post-draft-preview {
+        @apply  flex gap-6
+    }
+    .post-draft-preview__date {
+        @apply flex flex-col w-full text-center
+    }
+    .post-draft-preview__date__day {
+        @apply text-6xl font-semibold text-gray-500 dark:text-gray-300
+    }
+    .post-draft-preview__date__month-n-year {
+        @apply text-gray-400
+    }
+    .post-draft-preview__title {
+        @apply text-2xl font-semibold text-primary dark:text-primaryDark hover:underline mb-2
+    }
+    .post-draft-preview__desc {
+        @apply text-lg leading-6 dark:text-white line-clamp-2
+    }
+</style>

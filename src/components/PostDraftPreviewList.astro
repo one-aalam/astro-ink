@@ -1,0 +1,14 @@
+---
+import PostDraftPreview from './PostDraftPreview.astro'
+const { posts } = Astro.props
+---
+<section class="post-draft-preview__list">
+    {posts.map((post) => (
+        <PostDraftPreview post={post}/>
+    ))}
+</section>
+<style>
+    .post-draft-preview__list {
+        @apply flex flex-col gap-12
+    }
+</style>

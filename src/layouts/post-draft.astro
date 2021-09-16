@@ -1,0 +1,60 @@
+---
+import { SITE } from '$/config'
+import MainLayout from '$/components/MainLayout.astro'
+import BaseHead from '$/components/BaseHead.astro'
+import Prose from '$/components/Prose.astro'
+
+const { content } = Astro.props
+---
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={ content.title ? `${ SITE.title } | ${content.title}` : SITE.title } description={ content.description }/>
+    </head>
+    <MainLayout>
+        <div class="post__header">
+            <div class="post__tags">
+                { content.tags.length > 0 && content.tags.map(tag => <a class="post__tag" href={`/tags/${tag}`} title={tag}>{tag}</a>) }
+            </div>
+            <h1 class="post__title">{ content.title }</h1>
+            <h5 class="post__desc">
+                <a class="post__author" href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author}'s twitter`} target="_blank" rel="external">{ content.author }</a> |
+                <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}</span>
+            </h5>
+        </div>
+        <div class="draft-message">
+            You're viewing a <strong>preview</strong> of <code>/blog/{content.slug}</code> which isn't published yet!
+        </div>
+        <!--<img src={content.image} alt={content.title} />-->
+        <Prose>
+            <slot />
+        </Prose>
+    </MainLayout>
+</html>
+<style>
+    .post__header {
+        @apply py-4 mb-1
+    }
+    .post__title {
+        @apply text-5xl font-extrabold text-primary dark:text-primaryDark
+    }
+    .post__desc {
+        @apply text-gray-500 dark:text-gray-100
+    }
+    .post__author {
+        @apply no-underline dark:text-white hover:text-primary
+    }
+    .post__date {
+        @apply text-gray-400
+    }
+    .post__tags {
+        @apply inline-flex gap-2
+    }
+    .post__tag {
+        @apply text-gray-400 hover:text-primary dark:hover:text-primaryDark
+    }
+
+    .draft-message {
+        @apply bg-yellow-300 dark:bg-yellow-700 text-gray-700 dark:text-white px-2 py-1 my-2
+    }
+</style>

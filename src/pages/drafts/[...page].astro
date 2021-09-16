@@ -1,0 +1,26 @@
+---
+import DefaultPageLayout from '$/layouts/default.astro'
+import PostDraftPreviewList from '$/components/PostDraftPreviewList.astro'
+import Paginator from '$/components/Paginator.astro'
+import { SITE, PAGE_SIZE } from '$/config'
+
+let title = 'Drafts'
+let description = 'You\'re viewing a list of unpublished articles on the site. Accuracy or correctness isn\'t guranteed...'
+
+export async function getStaticPaths({ paginate, rss }) {
+  const allPosts = Astro.fetchContent('../../drafts/*.md');
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    return paginate(sortedPosts, {
+      pageSize: PAGE_SIZE
+    })
+}
+
+const { page } = Astro.props
+---
+<DefaultPageLayout content={{ title, description }}>
+    {
+        (SITE.listDrafts) ? <PostDraftPreviewList posts={page.data} /> : (<p class="text-gray-700 dark:text-gray-100">Looks like you have landed on a unpublished posts page. Please find all the published posts <a href="/blog">here</a>!</p>)
+    }
+    <Paginator page={page} />
+</DefaultPageLayout>
