@@ -16,7 +16,7 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 - __Collection + Dynamic Pages__ - It's ready with Next.js like dynamic pages, to support a tag-based classification system with paginated results, all configurable
 - __Dark Mode & Color Codes (beta)__ - It supports dark mode, and 6+ color modes that could be configured using `tailwind.config.js`. Remember to restart when developing, and enable just one group of colors at a time. To customize the blog section, add any of the Tailwind Typography's `prose-{color}` classes as referred [here](./src/components/Prose.astro)
 - __Netlify CMS<sup>*NEW</sup>__ Add/Edit/Update all the posts in the `/blog` directory by visiting `/your-site.com/admin` with your Netlify credentials.(_Write-up coming soon!_)
-- __Future Posts<sup>*NEW</sup>__(with Github Actions) Create posts in the `/src/drafts` directory with a future `date` in the `YYYY-MM-DD`, and let a specially crafted Github Action take care of auto-publishing it on your specified date. You can configure the check interval in Github Action.(_Write-up coming soon!_)
+- __Future Posts<sup>*NEW</sup>__(with Github Actions) Create posts in the `/src/drafts` directory with a future `date` in the `YYYY-MM-DD` format, and let a specially crafted [Github Action](https://github.com/marketplace/actions/ssg-publish-drafts) take care of auto-publishing it on your specified date. You can configure the check interval in [Github Action](https://github.com/one-aalam/astro-ink/blob/main/.github/workflows/main.yml).(_Write-up coming soon!_)
 
 ## Wanna learn Astro while building Ink?
 Head over to `aalam.in/blog` and learn
