@@ -1,0 +1,29 @@
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: 30 */4 * * *
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  publish-drafts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: SSG Publish Drafts
+        # You may pin to the exact commit or the version.
+        uses: one-aalam/github-action-astro-publish-drafts@v0.1-beta
+        with:
+          github_token: $\{{ secrets.GITHUB_TOKEN }}
+          github_actor: one-aalam
+          github_repository: one-aalam/astro-ink
