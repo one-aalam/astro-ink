@@ -2,6 +2,8 @@
     import { SITE } from '$/config'
     import SvgIcon from './SvgIcon.astro'
     import ModeSwitcherBtn from './ModeSwitcherBtn.svelte'
+    import SearchBtn from './SearchBtn.svelte'
+
 ---
 
 <header class="header">
@@ -20,6 +22,9 @@
             </p>
             <nav class="header__nav flex">
                 <ul class="header__ref-list">
+                    <li>
+                        <SearchBtn client:visible />
+                    </li>
                     <li>
                         <a href={ SITE.githubUrl } title={`${ SITE.name }'s Github URL'`}>
                             <SvgIcon>
