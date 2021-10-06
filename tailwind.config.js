@@ -50,6 +50,34 @@ module.exports = {
 			sans: ['Fira Code', ...fontFamily.sans],
 		},
 		extend: {
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        a: {
+                            color: theme('colors.primarySecondaryDark'),
+                              '&:hover': {
+                                color: theme('colors.primary'),
+                              },
+                        },
+                        blockquote: {
+                            color: theme('colors.primary'),
+                            borderColor: theme('colors.primaryDark')
+                        },
+                        'blockquote > p::before, p::after': {
+                            color: theme('colors.primaryDark'),
+                        },
+                        h1: {
+                            color: theme('colors.primarySecondaryDark'),
+                        },
+                        h2: {
+                            color: theme('colors.primarySecondaryDark'),
+                        },
+                        h3: {
+                            color: theme('colors.primarySecondaryDark'),
+                        },
+                    }
+                },
+            }),
 		}
 	},
     plugins: [
