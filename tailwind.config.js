@@ -1,5 +1,6 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+delete colors['lightBlue'] // A bit hackful but fixes - https://github.com/tailwindlabs/tailwindcss/issues/4690
 
 module.exports = {
     mode: 'jit',
