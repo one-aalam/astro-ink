@@ -15,9 +15,9 @@
         const resp = await fetch('/search-index.json')
         searchableDocs = await resp.json()
             // Initialize indexing
-        searchIndex = lunr(​function​ () {
+        searchIndex = lunr(function(){
             // the match key...
-            this​.ref(​'slug'​)
+            this.ref('slug')
 
             // indexable properties
             this.field('title')
@@ -25,13 +25,13 @@
             this.field('tags')
 
             // Omit, if you don't want to search on `body`
-​ 	      ​   this​.field(​'body'​)
+            this.field('body')
 
             // Index every document
-    ​ 	      searchableDocs.forEach(doc => {
-    ​ 	        ​this​.add(doc);
-    ​ 	      }, this)
-​ 	    });
+            searchableDocs.forEach(doc => {
+                this.add(doc)
+            }, this)
+        })
         searchInput.focus()
     })
 

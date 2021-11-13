@@ -11,9 +11,13 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "baseUrl": ".",
       "allowJs": true,
-      "checkJs": true
+      "checkJs": true,
+      "baseUrl": ".",
+      "paths": {
+        "$components": ["./src/components"],
+        "$": ["./src"]
+      }
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"]
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
 }

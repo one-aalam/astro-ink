@@ -1,3 +1,8 @@
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
@@ -22,5 +27,16 @@ export default /** @type {import('astro').AstroUserConfig} */ {
   },
   renderers: [
     '@astrojs/renderer-svelte',
-  ]
+  ],
+  vite: {
+    plugins: [],
+    resolve: {
+        alias: {
+          '$': path.resolve(__dirname, './src'),
+        },
+    },
+    optimizeDeps: {
+        allowNodeBuiltins: true
+    }
+  }
 };
