@@ -12,7 +12,7 @@ const __dirname = dirname(__filename)
 // You can disable this by removing "@ts-check" and `@type` comments below.
 
 // @ts-check
-export default /** @type {import('astro').AstroUserConfig} */ {
+export default /** @type {import('astro').AstroUserConfig} */ ({
   // projectRoot: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
   // pages: './src/pages',   // Path to Astro components, pages, and data
   // dist: './dist',       // When running `astro build`, path to final static output
@@ -39,4 +39,4 @@ export default /** @type {import('astro').AstroUserConfig} */ {
         allowNodeBuiltins: true
     }
   }
-};
+});
