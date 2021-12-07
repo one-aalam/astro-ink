@@ -52,6 +52,11 @@ module.exports = {
 		},
 		extend: {
             typography: (theme) => ({
+                dark: {
+                    css: {
+                        color: theme("colors.gray.200"),
+                    },
+                },
                 DEFAULT: {
                     css: {
                         a: {
@@ -79,8 +84,11 @@ module.exports = {
                     }
                 },
             }),
-		}
+		},
 	},
+    variants: {
+        extend: { typography: ["dark"] }
+    },
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/forms'),
