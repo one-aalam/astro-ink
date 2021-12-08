@@ -5,7 +5,12 @@ delete colors['lightBlue'] // A bit hackful but fixes - https://github.com/tailw
 module.exports = {
     mode: 'jit',
     darkMode: 'class',
-    purge: ['./public/**/*.html', './src/**/*.{astro,js,ts}'],
+    purge: {
+        content: ['./public/**/*.html', './src/**/*.{astro,js,ts}'],
+        options: {
+            safelist: ['dark'],
+        },
+    },
     theme: {
         colors: {
             ...colors,
