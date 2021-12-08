@@ -8,8 +8,13 @@ let title = 'Drafts'
 let description = 'You\'re viewing a list of unpublished articles on the site. Accuracy or correctness isn\'t guranteed...'
 
 export async function getStaticPaths({ paginate, rss }) {
-  const allPosts = Astro.fetchContent('../../drafts/*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    let allPosts = []
+    try {
+        allPosts = Astro.fetchContent('../../drafts/*.md');
+    } catch(error) {
+        console.log('No draft posts found while generating the index page for the draft pages')
+    }
+    const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     return paginate(sortedPosts, {
       pageSize: PAGE_SIZE
