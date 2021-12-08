@@ -1,0 +1,14 @@
+@tailwind base;
+/* https://github.com/tailwindlabs/tailwindcss/discussions/2917 */
+@layer base {
+	body {
+		&.dark {
+			@apply text-gray-200;
+            header, footer {
+                @apply text-gray-400 border-gray-700;
+            }
+		}
+	}
+}
+@tailwind components;
+@tailwind utilities;

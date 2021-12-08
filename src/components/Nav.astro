@@ -3,7 +3,7 @@ import { toTitleCase } from '$/utils'
 import { NAV_ITEMS } from '$/config'
 ---
 <nav class="nav py-3">
-    <ul class="nav-list">
+    <ul class="nav-list dark:text-primarySecondaryDark">
          {
             Object.keys(NAV_ITEMS).map(navItemKey => <li>
                 <a class="hover:underline" href={NAV_ITEMS[navItemKey].path} title={NAV_ITEMS[navItemKey].title}>{toTitleCase(NAV_ITEMS[navItemKey].title)}</a>

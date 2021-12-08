@@ -20,6 +20,11 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 - __Future Posts<sup>*NEW</sup>__(with Github Actions) - Create posts in the `/src/drafts` directory with a future `date` in the `YYYY-MM-DD` format, and let a specially crafted [Github Action](https://github.com/marketplace/actions/ssg-publish-drafts) take care of auto-publishing it on your specified date. You can configure the check interval in [Github Action](https://github.com/one-aalam/astro-ink/blob/main/.github/workflows/main.yml).(_Write-up coming soon!_)
 - __Client-Side Search<sup>*NEW</sup>__ - Allow your users get to your blog posts quickly with client-side search feat. Lunr.js
 
+## Built with Astro Ink
+- [jamesperkins.dev](https://www.jamesperkins.dev/) - Personal site of developer, YouTube instructor [James R Perkins](https://twitter.com/james_r_perkins)
+
+> know a site built with Astro Ink? Let me know on [Twitter](https://twitter.com/aftabbuddy)
+
 ## Wanna learn Astro while building Ink?
 Head over to `aalam.in/blog` and learn
 - [How to set Astro up and get it running with essential defaults for styling, prototyping, and incremental deployments](https://aalam.in/blog/astro-get-up-and-running)

@@ -3,15 +3,15 @@
     import ModeLabel from './ModeLabel.svelte'
     import NetlifyIdentity from './NetlifyIdentity.svelte'
 ---
-<div class="footer">
+<footer class="footer">
     <nav class="nav">
         <div>2021  &copy; Copyright notice |  <a href={ SITE.githubUrl } title={`${ SITE.name }'s Github URL'`}>{ SITE.name }</a>
         <ModeLabel client:load/> theme on <a href="https://astro.build/">Astro</a></div>
         <NetlifyIdentity client:load/>
     </nav>
-</div>
+</footer>
 <style>
     .footer {
-        @apply py-6 border-t dark:text-gray-300 border-gray-200  dark:border-gray-700
+        @apply py-6 border-t
     }
 </style>

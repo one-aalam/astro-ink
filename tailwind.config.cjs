@@ -5,7 +5,12 @@ delete colors['lightBlue'] // A bit hackful but fixes - https://github.com/tailw
 module.exports = {
     mode: 'jit',
     darkMode: 'class',
-    purge: ['./public/**/*.html', './src/**/*.{astro,js,ts}'],
+    purge: {
+        content: ['./public/**/*.html', './src/**/*.{astro,js,ts}'],
+        options: {
+            safelist: ['dark'],
+        },
+    },
     theme: {
         colors: {
             ...colors,
@@ -52,6 +57,11 @@ module.exports = {
 		},
 		extend: {
             typography: (theme) => ({
+                dark: {
+                    css: {
+                        color: theme("colors.gray.200"),
+                    },
+                },
                 DEFAULT: {
                     css: {
                         a: {
@@ -79,8 +89,11 @@ module.exports = {
                     }
                 },
             }),
-		}
+		},
 	},
+    variants: {
+        extend: { typography: ["dark"] }
+    },
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/forms'),

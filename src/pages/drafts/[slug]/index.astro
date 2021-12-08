@@ -4,7 +4,12 @@ import { getSlugFromPathname } from '$/utils'
 import PostDraftPageLayout from '$/layouts/post-draft.astro'
 
 export async function getStaticPaths({ }) {
-  const allPosts = Astro.fetchContent('../../../drafts/*.md')
+    let allPosts = []
+    try {
+        allPosts = Astro.fetchContent('../../../drafts/*.md')
+    } catch(error) {
+        console.log('No draft posts found while generating the draft pages')
+    }
     const allSlugs = new Set()
     const allPostsWithSlug = allPosts.map(post => {
         // @ts-ignore
