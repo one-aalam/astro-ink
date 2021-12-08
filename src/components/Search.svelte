@@ -15,7 +15,7 @@
         const resp = await fetch('/search-index.json')
         searchableDocs = await resp.json()
             // Initialize indexing
-        searchIndex = lunr(​function​ () {
+        searchIndex = lunr(() => {
             // the match key...
             this​.ref(​'slug'​)
 
