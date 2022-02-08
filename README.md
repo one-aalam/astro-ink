@@ -22,6 +22,7 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 
 ## Built with Astro Ink
 - [jamesperkins.dev](https://www.jamesperkins.dev/) - Personal site of developer, YouTube instructor [James R Perkins](https://twitter.com/james_r_perkins)
+- [highlandcows.github.io](https://highlandcows.github.io/) [Nick Jacob](https://github.com/njacobs5074)'s personal blog
 
 > know a site built with Astro Ink? Let me know on [Twitter](https://twitter.com/aftabbuddy)
 
