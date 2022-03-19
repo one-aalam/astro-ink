@@ -4,7 +4,9 @@ title: "Astro : HTML Forward Framework"
 description: Printing and typesetting industry. Lorem Ipsum has been the
   industry's standard dummy text ever since the 1500s, when an unknown printer
   took a galley of type and scrambled it to make a type specimen book.
-author: your mom
+tags:
+  - bluey
+author: bluey
 authorTwitter: peppa pig
 date: 2022-03-19T23:24:52.546Z
 ---
