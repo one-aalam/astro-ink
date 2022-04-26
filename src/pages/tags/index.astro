@@ -5,8 +5,8 @@ let title = 'All Tags'
 let description = 'All the tags used so far...'
 
 
-const allPosts = await Astro.fetchContent('../blog/*.md');
-const tags = [...new Set([].concat.apply([], allPosts.map(post => post.tags)))]
+const allPosts = await Astro.glob('../blog/*.md');
+const tags = [...new Set([].concat.apply([], allPosts.map(post => post.frontmatter.tags)))]
 ---
 
 <DefaultPageLayout content={{ title, description }}>

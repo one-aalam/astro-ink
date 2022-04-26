@@ -10,7 +10,7 @@ let description = 'You\'re viewing a list of unpublished articles on the site. A
 export async function getStaticPaths({ paginate, rss }) {
     let allPosts = []
     try {
-        allPosts = Astro.fetchContent('../../drafts/*.md');
+        allPosts = await Astro.glob('../../drafts/*.md');
     } catch(error) {
         console.log('No draft posts found while generating the index page for the draft pages')
     }

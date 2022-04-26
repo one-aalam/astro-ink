@@ -1,16 +1,18 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 delete colors['lightBlue'] // A bit hackful but fixes - https://github.com/tailwindlabs/tailwindcss/issues/4690
+delete colors['warmGray']
+delete colors['trueGray']
+delete colors['coolGray']
+delete colors['blueGray']
 
 module.exports = {
-    mode: 'jit',
     darkMode: 'class',
-    purge: {
-        content: ['./public/**/*.html', './src/**/*.{astro,js,ts}'],
-        options: {
-            safelist: ['dark'],
-        },
-    },
+    content: [
+        './public/**/*.html',
+        './src/**/*.{astro,js,ts}'
+    ],
+    safelist: ['dark'],
     theme: {
         colors: {
             ...colors,
