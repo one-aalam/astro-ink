@@ -7,8 +7,6 @@ Astro Ink is a minimal theme created to serve minimalistic markdown-based blog n
 
 It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme and strives to remain light, while providing the basis for a beautiful, minimal blog.
 
-> Astro Ink is based on a version of Astro ([v0.21](https://docs.astro.build/en/migrate/#migrate-to-v021)) that doesn't supports SSR, and achieves its core functionalities differently. Nothing should ideally break if you wanna clone and work with this, but you might not get all the latest/best, amazing, or stable features Astro shipped since v0.21. I'm working on the upgrade and looking forward to drop the updates in a week or two(10th May, 2022). You can watch the repo to be notified of the updates.
-
 ## Features
 - __Minimal, Crisp, Markdown-Blog Ready__
 - __Uses `astro@next`__ - It uses Astro's [next](https://next.docs.astro.build/getting-started) APIs under the hood

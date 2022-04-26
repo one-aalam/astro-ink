@@ -33,3 +33,33 @@ Today I'm excited to publicly share Astro: a new kind of static site builder tha
 This post marks the first public beta release of Astro. Missing features and bugs are still to be expected at this early stage. There are still some months to go before an official 1.0 release, but there are already several fast sites built with Astro in production today. We would love your early feedback as we move towards a v1.0 release later this year.
 
 > To learn more about Astro and start building your first site, check out the project README.
+
+# Example - Syntax Highlighting
+
+## Shell(Bash)
+
+```bash
+# make a new project directory and jump into it
+mkdir my-astro-project && cd $_
+
+# create a new project with npm
+npm create astro@latest
+
+# or yarn
+yarn create astro
+
+# or pnpm
+pnpm create astro@latest
+```
+
+## Python
+
+```python
+print('hello world')
+```
+
+## Javascript
+
+```js
+const func = () => {alert("hello")}
+```
