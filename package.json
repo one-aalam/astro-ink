@@ -22,6 +22,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@astrojs/netlify": "^0.3.2",
     "@astrojs/sitemap": "^0.1.0",
     "@astrojs/svelte": "^0.1.1",
     "@astrojs/tailwind": "^0.2.0"

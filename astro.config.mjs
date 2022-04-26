@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url'
 import svelte from '@astrojs/svelte'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
+import netlify from '@astrojs/netlify/functions';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -43,5 +44,6 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
     optimizeDeps: {
         allowNodeBuiltins: true
     }
-  }
+  },
+  adapter: netlify()
 });
