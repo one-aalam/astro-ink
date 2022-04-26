@@ -18,7 +18,7 @@ const { content } = Astro.props
             </div>
             <h1 class="post__title">{ content.title }</h1>
             <h5 class="post__desc">
-                <a class="post__author" href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author}'s twitter`} target="_blank" rel="external">{ content.author }</a> |
+                <a class="post__author" href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author + "'s"} twitter`} target="_blank" rel="external">{ content.author }</a> |
                 <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}</span>
             </h5>
         </div>

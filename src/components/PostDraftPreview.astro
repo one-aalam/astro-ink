@@ -1,6 +1,6 @@
 ---
 import { getMonthName, getSlugFromPathname } from '$/utils'
-const { post } = Astro.props
+const { frontmatter: post, file } = Astro.props.post
 ---
 <div class="post-draft-preview">
     <div class="sm:w-20 md:w-32">
@@ -11,7 +11,7 @@ const { post } = Astro.props
     </div>
     <div class="flex-1">
         <h4 class="post-draft-preview__title">
-            <a href={`/drafts/${getSlugFromPathname(post.file.pathname)}`} title={post.title}>{post.title}</a>
+            <a href={`/drafts/${getSlugFromPathname(file)}`} title={post.title}>{post.title}</a>
         </h4>
         <p class="post-draft-preview__desc">
             {post.description}

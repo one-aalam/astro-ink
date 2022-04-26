@@ -8,7 +8,7 @@ let title = 'Blog'
 let description = 'All the articles posted so far...'
 
 export async function getStaticPaths({ paginate, rss }) {
-  const allPosts = Astro.fetchContent('./*.md');
+  const allPosts = await Astro.glob('./*.md');
   const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   rss({
@@ -16,10 +16,10 @@ export async function getStaticPaths({ paginate, rss }) {
     description: SITE.description,
     customData: `<language>en-us</language>`,
     items: sortedPosts.map(item => ({
-      title: item.title,
-      description: item.description,
+      title: item.frontmatter.title,
+      description: item.frontmatter.description,
       link: item.url,
-      pubDate: item.date,
+      pubDate: item.frontmatter.date,
     })),
   })
 

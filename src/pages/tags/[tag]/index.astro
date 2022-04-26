@@ -3,14 +3,14 @@ import DefaultPageLayout from '$/layouts/default.astro'
 import PostPreviewList from '$/components/PostPreviewList.astro'
 
 export async function getStaticPaths({ }) {
-  const allPosts = Astro.fetchContent('../../blog/*.md')
+  const allPosts = await Astro.glob('../../blog/*.md')
   const allTags = new Set()
   allPosts.map(post => {
-      post.tags && post.tags.map(tag => allTags.add(tag.toLowerCase()))
+      post.frontmatter.tags && post.frontmatter.tags.map(tag => allTags.add(tag.toLowerCase()))
   })
 
   return Array.from(allTags).map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.tags.includes(tag))
+    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag))
     return {
       params: { tag },
       props: {
@@ -21,9 +21,9 @@ export async function getStaticPaths({ }) {
 }
 
 const { pages } = Astro.props
-const { params } = Astro.request
+const { tag } = Astro.params
 ---
 
-<DefaultPageLayout content={{ title: `Posts by Tag: ${params.tag}`, description: `all of the articles we've posted and linked so far under the tag: ${params.tag}` }}>
+<DefaultPageLayout content={{ title: `Posts by Tag: ${tag}`, description: `all of the articles we have posted and linked so far under the tag: ${tag}` }}>
     <PostPreviewList posts={pages} />
 </DefaultPageLayout>

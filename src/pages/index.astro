@@ -6,7 +6,7 @@ import PostPreviewList from '$/components/PostPreviewList.astro'
 const title = 'Home'
 const description = 'Astro-Ink is a crisp, minimal, personal blog theme for Astro'
 
-const posts = Astro.fetchContent('./blog/*.md')
+const posts = await Astro.glob('./blog/*.md')
 ---
 <DefaultPageLayout content={{ title, description }} showPageHeader={false}>
     <PostPreviewList posts={posts} />

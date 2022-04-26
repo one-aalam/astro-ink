@@ -6,14 +6,14 @@ import PostDraftPageLayout from '$/layouts/post-draft.astro'
 export async function getStaticPaths({ }) {
     let allPosts = []
     try {
-        allPosts = Astro.fetchContent('../../../drafts/*.md')
+        allPosts = await Astro.glob('../../../drafts/*.md')
     } catch(error) {
         console.log('No draft posts found while generating the draft pages')
     }
     const allSlugs = new Set()
     const allPostsWithSlug = allPosts.map(post => {
         // @ts-ignore
-        const slug = getSlugFromPathname(post.file.pathname)
+        const slug = getSlugFromPathname(post.file)
         allSlugs.add(slug.toLowerCase())
         return {
             ...post,
@@ -32,10 +32,16 @@ export async function getStaticPaths({ }) {
     });
 }
 
+const { slug } = Astro.params
 const { pages } = Astro.props
-const { params } = Astro.request
-const html = `${pages[0].astro.html}`.replace(/\n/ig, '')
+const [ post ] = pages
 ---
-<PostDraftPageLayout content={pages[0]}>
-    {html}
-</PostDraftPageLayout>
+<div class="draft-message">
+    You're viewing a <strong>preview</strong> of <code>/blog/{slug}</code> which isn't published yet!
+</div>
+<post.Content/>
+<style>
+    .draft-message {
+        @apply w-full bg-yellow-300 dark:bg-yellow-700 text-gray-700 dark:text-white px-2 py-1 text-center
+    }
+</style>
