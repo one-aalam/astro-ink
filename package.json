@@ -10,6 +10,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^0.11.1",
     "@astrojs/rss": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/svelte": "^1.0.0",
@@ -24,6 +25,7 @@
     "globby": "^13.1.2",
     "gray-matter": "^4.0.3",
     "lunr": "^2.3.9",
+    "mdx": "^0.3.1",
     "svelte": "^3.50.0",
     "tailwindcss": "^3.0.24",
     "typescript": "^4.3.5"
