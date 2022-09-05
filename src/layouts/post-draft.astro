@@ -36,13 +36,13 @@ const { content } = Astro.props
         @apply py-4 mb-1
     }
     .post__title {
-        @apply text-5xl font-extrabold text-primary dark:text-primaryDark
+        @apply text-5xl font-extrabold text-theme-primary dark:text-theme-dark-primary
     }
     .post__desc {
         @apply text-gray-500 dark:text-gray-100
     }
     .post__author {
-        @apply no-underline dark:text-white hover:text-primary
+        @apply no-underline dark:text-white hover:text-theme-primary
     }
     .post__date {
         @apply text-gray-400
@@ -51,7 +51,7 @@ const { content } = Astro.props
         @apply inline-flex gap-2
     }
     .post__tag {
-        @apply text-gray-400 hover:text-primary dark:hover:text-primaryDark
+        @apply text-gray-400 hover:text-theme-primary dark:hover:text-theme-dark-primary
     }
 
     .draft-message {
