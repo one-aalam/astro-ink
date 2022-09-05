@@ -1,14 +1,12 @@
 ---
-import { Markdown } from 'astro/components'
+title: 'About'
+description: 'There is a simple secret to building a faster website — just ship less.'
+---
 import DefaultPageLayout from '$/layouts/default.astro'
 import Prose from '$/components/Prose.astro'
 
-const title = 'About';
-const description = 'There\'s a simple secret to building a faster website — just ship less.';
----
-<DefaultPageLayout content={{ title, description }}>
+<DefaultPageLayout content={{ title: frontmatter.title, description: frontmatter.description }}>
     <Prose>
-        <Markdown>
             Astro-Ink is a crisp, minimal, personal blog theme for Astro, that shows the capability of statically built sites - offering all the goodness and DX of the modern JS ecosystem without actually shipping any JS by default. It's built by...
 
             ## Few Bots, Meta-humans & a Guy!
@@ -16,13 +14,5 @@ Aftab Alam // [@aftabbuddy](https://twitter.com/aftabbuddy)  // [one-aalam](http
             <div class="author">
                 <img class="rounded-full" width="160" src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5358878e2493fbea064dd9_peep-59.svg" title="Aalam" />
             </div>
-
-        </Markdown>
     </Prose>
 </DefaultPageLayout>
-
-<style>
-    .author {
-        @apply flex flex-col w-full
-    }
-</style>

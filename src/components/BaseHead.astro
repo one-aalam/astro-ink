@@ -1,4 +1,5 @@
 ---
+    import '@fontsource/fira-sans'
     import { SITE } from '$/config'
     import '../styles/global.css'
 
@@ -11,9 +12,10 @@
 
     const { title = SITE.title , description, permalink, image } = Astro.props as Props
 ---
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Use Google Fonts, if you don't wanna prefer a self-hosted version -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

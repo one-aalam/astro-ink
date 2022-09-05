@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       "moduleResolution": "node",
-      "module": "es2020",
+      "module": "ES2022",
       "lib": ["es2020"],
       "target": "es2019",
       "importsNotUsedAsValues": "error",
@@ -17,7 +17,8 @@
       "paths": {
         "$components": ["./src/components"],
         "$": ["./src"]
-      }
+      },
+      "types": ["astro/env"]
     },
     "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
 }
