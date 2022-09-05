@@ -3,7 +3,7 @@ const config = require('./tailwind.theme.config')
 /**
  * Find the applicable theme color palette, or use the default one
  */
-const themeConfig = process.env.THEME_KEY && config[process.env.THEME_KEY] ? config[process.env.THEME_KEY] : config.limeroute
+const themeConfig = process.env.THEME_KEY && config[process.env.THEME_KEY] ? config[process.env.THEME_KEY] : config.default
 const { colors } = themeConfig
 module.exports = {
     darkMode: 'class',
@@ -65,6 +65,5 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
-        require('@mertasan/tailwindcss-variables')
     ]
 };
