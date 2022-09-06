@@ -73,22 +73,22 @@
 </div>
 <style>
     .search {
-        @apply w-full relative bg-primary  p-8  rounded-md shadow-lg;
+        @apply w-full relative bg-theme-primary  p-8  rounded-md shadow-lg;
     }
     input {
-        @apply w-full px-4 py-2 pl-10 text-xl font-semibold text-gray-600 border-0 shadow-inner rounded-md bg-gray-100 placeholder-purple-500;
+        @apply w-full px-4 py-2 pl-10 text-xl font-semibold text-gray-600 border-0 shadow-inner rounded-md bg-gray-100 placeholder-theme-dark-secondary;
     }
     .search__ctrl {
         @apply pb-4 relative;
     }
     .search__ctrl label {
-        @apply text-primary absolute top-2 left-2;
+        @apply text-theme-primary absolute top-2 left-2;
     }
     .search__results {
         @apply w-96 h-64 py-4 overflow-y-auto;
     }
     .search__results--none {
-        @apply  text-center text-primaryDark;
+        @apply  text-center text-theme-dark-primary;
     }
     .note {
         @apply w-full text-center text-white;
