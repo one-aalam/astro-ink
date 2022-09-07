@@ -3,9 +3,12 @@
     import ModeLabel from './ModeLabel.svelte'
     import NetlifyIdentity from './NetlifyIdentity.svelte'
 ---
+<script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
 <footer class="footer">
     <nav class="nav">
-        <div>2021  &copy; Copyright notice |  <a href={ SITE.githubUrl } title={`${ SITE.name }'s Github URL'`}>{ SITE.name }</a>
+        <div><span id="year"></span>  &copy; Copyright notice |  <a href={ SITE.githubUrl } title={`${ SITE.name }'s Github URL'`}>{ SITE.name }</a>
         <ModeLabel client:load/> theme on <a href="https://astro.build/">Astro</a></div>
         <NetlifyIdentity client:load/>
     </nav>
