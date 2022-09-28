@@ -1,6 +1,6 @@
 ---
 layout: $/layouts/post.astro
-title: Introducing Astro - Ship Less JavaScript
+title: Introducing Astro - Ship Less JavaScript1
 description: There's a simple secret to building a faster website — just ship less.
 tags:
   - astro
