@@ -1,6 +1,6 @@
 ---
 layout: $/layouts/post.astro
-title: hihiiiiii
+title: hihiiiiii ok
 description: lol
 tags:
   - test
