@@ -5,13 +5,13 @@ const { post } = Astro.props
 <div class="post-preview">
     <div class="sm:w-20 md:w-32">
         <div class="post-preview__date">
-            <span class="post-preview__date__day">{ new Date(post.date).getDate() }</span>
+            <span class="post-preview__date__day dark:text-gray-300">{ new Date(post.date).getDate() }</span>
             <span class="post-preview__date__month-n-year">{ `${getMonthName(post.date)} ${new Date(post.date).getFullYear()}` }</span>
         </div>
     </div>
     <div class="flex-1">
         <div class="flex flex-col mb-2">
-            <h4 class="post-preview__title">
+            <h4 class="post-preview__title dark:text-theme-dark-primary">
                 <a href={post.url} title={post.title} target="_blank">{post.title}</a>
             </h4>
             <div>
@@ -21,7 +21,7 @@ const { post } = Astro.props
             }
             </div>
         </div>
-        <p class="post-preview__desc">
+        <p class="post-preview__desc dark:text-white">
             {post.description}
         </p>
     </div>
@@ -34,15 +34,15 @@ const { post } = Astro.props
         @apply flex flex-col w-full text-center
     }
     .post-preview__date__day {
-        @apply text-6xl font-semibold text-gray-500 dark:text-gray-300
+        @apply text-6xl font-semibold text-gray-500
     }
     .post-preview__date__month-n-year {
         @apply text-gray-400
     }
     .post-preview__title {
-        @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary hover:underline
+        @apply text-2xl font-semibold text-theme-primary hover:underline
     }
     .post-preview__desc {
-        @apply text-lg leading-6 dark:text-white line-clamp-2
+        @apply text-lg leading-6 line-clamp-2
     }
 </style>
