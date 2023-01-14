@@ -9,7 +9,8 @@
 <header class="header">
     <div class="header__logo">
         <a href="/" class="avatar">
-            <img class="header__logo-img" src="/assets/logo.svg" alt="Astro logo" />
+            <img class="header__logo-img hidden dark:block" src="/assets/logo.svg" alt="Astro logo" />
+            <img class="header__logo-img dark:hidden" src="/assets/logo-dark.svg" alt="Astro logo" />
         </a>
     </div>
     <div class="header__meta flex-1">
@@ -17,7 +18,7 @@
             <a href="">{ SITE.name }</a>
         </h3>
         <div class="header__meta-more flex">
-            <p class="header__desc">
+            <p class="header__desc dark:text-gray-200">
                 { SITE.description }
             </p>
             <nav class="header__nav flex">
@@ -58,10 +59,10 @@
         @apply w-16 h-16 rounded-full overflow-hidden
     }
     .header__title {
-        @apply text-4xl font-extrabold md:text-5xl text-theme-secondary dark:text-theme-dark-secondary
+        @apply text-4xl font-extrabold md:text-5xl text-theme-secondary
     }
     .header__desc {
-        @apply text-xl flex-1 dark:text-gray-200
+        @apply text-xl flex-1
     }
     .header__ref-list {
         @apply flex gap-3 text-gray-400

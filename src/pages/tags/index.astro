@@ -12,7 +12,7 @@ const tags = [...new Set([].concat.apply([], allPosts.map(post => post.frontmatt
 <DefaultPageLayout content={{ title, description }}>
     <ul class="tag-list">
      {tags.map((tag) => (
-        <li><a class="tag" href={`/tags/${tag}`} title={`View posts tagged under "${tag}"`}>{tag}</a></li>
+        <li><a class="tag dark:bg-theme-primary dark:text-theme-dark-primary dark:hover:bg-theme-dark-primary dark:hover:text-theme-primary" href={`/tags/${tag}`} title={`View posts tagged under "${tag}"`}>{tag}</a></li>
     ))}
     </ul>
 </DefaultPageLayout>
@@ -22,6 +22,6 @@ const tags = [...new Set([].concat.apply([], allPosts.map(post => post.frontmatt
         @apply list-none flex gap-2 flex-wrap
     }
     .tag {
-        @apply inline-block text-xl px-4 py-1 rounded-full text-theme-primary bg-theme-dark-primary dark:bg-theme-primary dark:text-theme-dark-primary hover:bg-theme-primary hover:text-theme-dark-primary dark:hover:bg-theme-dark-primary dark:hover:text-theme-primary
+        @apply inline-block text-xl px-4 py-1 rounded-full text-theme-primary bg-theme-dark-primary hover:bg-theme-primary hover:text-theme-dark-primary
     }
 </style>

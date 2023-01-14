@@ -36,12 +36,12 @@ const { slug } = Astro.params
 const { pages } = Astro.props
 const [ post ] = pages
 ---
-<div class="draft-message">
+<div class="draft-message dark:bg-yellow-700 dark:text-white">
     You're viewing a <strong>preview</strong> of <code>/blog/{slug}</code> which isn't published yet!
 </div>
 <post.Content/>
 <style>
     .draft-message {
-        @apply w-full bg-yellow-300 dark:bg-yellow-700 text-gray-700 dark:text-white px-2 py-1 text-center
+        @apply w-full bg-yellow-300 text-gray-700 px-2 py-1 text-center
     }
 </style>

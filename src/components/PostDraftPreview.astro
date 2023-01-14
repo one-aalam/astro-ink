@@ -5,15 +5,15 @@ const { frontmatter: post, file } = Astro.props.post
 <div class="post-draft-preview">
     <div class="sm:w-20 md:w-32">
         <div class="post-draft-preview__date">
-            <span class="post-draft-preview__date__day">{ new Date(post.date).getDate() }</span>
+            <span class="post-draft-preview__date__day dark:text-gray-300">{ new Date(post.date).getDate() }</span>
             <span class="post-draft-preview__date__month-n-year">{ `${getMonthName(post.date)} ${new Date(post.date).getFullYear()}` }</span>
         </div>
     </div>
     <div class="flex-1">
-        <h4 class="post-draft-preview__title">
+        <h4 class="post-draft-preview__title dark:text-theme-dark-primary">
             <a href={`/drafts/${getSlugFromPathname(file)}`} title={post.title}>{post.title}</a>
         </h4>
-        <p class="post-draft-preview__desc">
+        <p class="post-draft-preview__desc dark:text-white">
             {post.description}
         </p>
     </div>
@@ -26,15 +26,15 @@ const { frontmatter: post, file } = Astro.props.post
         @apply flex flex-col w-full text-center
     }
     .post-draft-preview__date__day {
-        @apply text-6xl font-semibold text-gray-500 dark:text-gray-300
+        @apply text-6xl font-semibold text-gray-500
     }
     .post-draft-preview__date__month-n-year {
         @apply text-gray-400
     }
     .post-draft-preview__title {
-        @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary hover:underline mb-2
+        @apply text-2xl font-semibold text-theme-primary hover:underline mb-2
     }
     .post-draft-preview__desc {
-        @apply text-lg leading-6 dark:text-white line-clamp-2
+        @apply text-lg leading-6 line-clamp-2
     }
 </style>

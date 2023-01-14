@@ -13,7 +13,7 @@ const { content, showPageHeader = true } = Astro.props
     <MainLayout>
         {showPageHeader &&
             <div class="page__header">
-                <h1 class="page__title">{content.title}</h1>
+                <h1 class="page__title dark:text-theme-dark-primary">{content.title}</h1>
                 <h5 class="page__desc">{content.description}</h5>
             </div>
         }
@@ -25,7 +25,7 @@ const { content, showPageHeader = true } = Astro.props
         @apply py-4 mb-1
     }
     .page__title {
-        @apply text-5xl font-extrabold text-theme-primary dark:text-theme-dark-primary
+        @apply text-5xl font-extrabold text-theme-primary
     }
     .page__desc {
         @apply text-gray-400
