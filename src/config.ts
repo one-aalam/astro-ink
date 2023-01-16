@@ -30,8 +30,8 @@ export const SITE = {
     description: 'Crisp, minimal, personal blog theme for Astro',
     url: 'https://astro-ink.vercel.app',
     githubUrl: 'https://github.com/one-aalam/astro-ink',
-    listDrafts: true
-    // description ?
+    listDrafts: true,
+    image: 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png'
 }
 
 export const PAGE_SIZE = 8

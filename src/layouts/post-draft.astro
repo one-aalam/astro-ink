@@ -9,7 +9,7 @@ const { content } = Astro.props
 <!doctype html>
 <html lang="en">
     <head>
-        <BaseHead title={ content.title ? `${ SITE.title } | ${content.title}` : SITE.title } description={ content.description }/>
+        <BaseHead {...content} title={ content.title ? `${ SITE.title } | ${content.title}` : SITE.title }/>
     </head>
     <MainLayout>
         <div class="post__header">
