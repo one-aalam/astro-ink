@@ -1,7 +1,7 @@
 @tailwind base;
 /* https://github.com/tailwindlabs/tailwindcss/discussions/2917 */
 @layer base {
-	body {
+	html {
 		&.dark {
 			@apply text-gray-200;
             header, footer {
