@@ -31,7 +31,10 @@ export const SITE = {
     url: 'https://astro-ink.vercel.app',
     githubUrl: 'https://github.com/one-aalam/astro-ink',
     listDrafts: true,
-    image: 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png'
+    image: 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png',
+    // Optional, user settings (example)
+    // YT video channel Id (used in media.astro)
+    ytChannelId: ''
 }
 
 export const PAGE_SIZE = 8

@@ -1,14 +1,20 @@
 ---
 import DefaultPageLayout from '$/layouts/default.astro'
 import MediaPreviewList from '$/components/MediaPreviewList.astro'
-// import posts from '$/data/astro-media.json'
+import { SITE } from '../config'
+import { DEFAULT_MEDIA_URL } from '../utils/media'
+import { toFeedToJsonUrl, toMediaFormatFromFeed2JsonUrl } from '../utils/media-yt-feed'
+
+/* Astro Ink's Media settings */
+
+/* The usual stuff...*/
 
 let title = 'Videos & Screencasts';
 let description = 'All the great videos on Astro we could find for ya!'
 
-const response = await fetch('https://raw.githubusercontent.com/one-aalam/astro-ink/main/src/data/astro-media.json')
+const response = await fetch(SITE.ytChannelId ? toFeedToJsonUrl(SITE.ytChannelId) : DEFAULT_MEDIA_URL )
 const allPosts = await response.json()
-const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
+const sortedPosts = (SITE.ytChannelId ? toMediaFormatFromFeed2JsonUrl(allPosts) : allPosts).sort((a, b) => new Date(b.date) - new Date(a.date))
 ---
 <DefaultPageLayout content={{ title, description }}>
     <MediaPreviewList posts={sortedPosts} />
