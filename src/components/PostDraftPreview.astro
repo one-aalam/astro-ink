@@ -10,7 +10,7 @@ const { frontmatter: post, file } = Astro.props.post
         </div>
     </div>
     <div class="flex-1">
-        <h4 class="post-draft-preview__title">
+        <h4 class="post-draft-preview__title dark:text-theme-dark-primary">
             <a href={`/drafts/${getSlugFromPathname(file)}`} title={post.title}>{post.title}</a>
         </h4>
         <p class="post-draft-preview__desc">
@@ -32,7 +32,7 @@ const { frontmatter: post, file } = Astro.props.post
         @apply text-gray-400
     }
     .post-draft-preview__title {
-        @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary hover:underline mb-2
+        @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary /* this doesn't works here */ hover:underline mb-2
     }
     .post-draft-preview__desc {
         @apply text-lg leading-6 dark:text-white line-clamp-2

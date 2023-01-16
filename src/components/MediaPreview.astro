@@ -11,7 +11,7 @@ const { post } = Astro.props
     </div>
     <div class="flex-1">
         <div class="flex flex-col mb-2">
-            <h4 class="post-preview__title">
+            <h4 class="post-preview__title dark:text-theme-dark-primary">
                 <a href={post.url} title={post.title} target="_blank">{post.title}</a>
             </h4>
             <div>
@@ -40,7 +40,7 @@ const { post } = Astro.props
         @apply text-gray-400
     }
     .post-preview__title {
-        @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary hover:underline
+        @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary /* this doesn't works here */ hover:underline
     }
     .post-preview__desc {
         @apply text-lg leading-6 dark:text-white line-clamp-2
