@@ -22,6 +22,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "@types/node": "^18.7.14",
     "astro": "^1.6.13",
+    "astro-icon": "^0.8.0",
     "globby": "^13.1.2",
     "gray-matter": "^4.0.3",
     "lunr": "^2.3.9",
