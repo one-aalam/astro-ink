@@ -1,5 +1,5 @@
 ---
-import { SITE } from '$/config'
+import { SITE, USE_POST_IMG_OVERLAY } from '$/config'
 import MainLayout from '$/components/MainLayout.astro'
 import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
@@ -18,11 +18,22 @@ const { content } = Astro.props
             </div>
             <h1 class="post__title">{ content.title }</h1>
             <h5 class="post__desc">
-                <a class="post__author" href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author + "'s"} twitter`} target="_blank" rel="external">{ content.author }</a> |
+                <a class="post__author" href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author + "'s"} twitter`} target="_blank" rel="external">{ content.author }</a>
+                 |
                 <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}</span>
             </h5>
         </div>
-        <!--<img src={content.image} alt={content.title} />-->
+        {
+            content.image ?
+            USE_POST_IMG_OVERLAY ?
+                <div class="img__outer">
+                    <img src={content.image} alt={content.title} />
+                    <div class="img_gradient"></div>
+                </div><br/>
+                :
+                <img class="img__outer" src={content.image} alt={content.title} /><br/>
+                : ""
+        }
         <Prose>
             <slot />
         </Prose>
@@ -36,7 +47,7 @@ const { content } = Astro.props
         @apply text-5xl font-extrabold text-theme-primary dark:text-theme-dark-primary
     }
     .post__desc {
-        @apply text-gray-500 dark:text-gray-100
+        @apply text-gray-500 dark:text-gray-100 hyphens-auto
     }
     .post__author {
         @apply no-underline dark:text-white hover:text-theme-primary
@@ -49,5 +60,12 @@ const { content } = Astro.props
     }
     .post__tag {
         @apply text-gray-400 hover:text-theme-primary dark:hover:text-theme-dark-primary
+    }
+
+    .img__outer {
+        @apply relative rounded-lg shadow-xl overflow-hidden
+    }
+    .img_gradient {
+        @apply absolute z-10 w-full bottom-0 left-0 h-full bg-gradient-to-tr from-theme-primary dark:from-theme-dark-primary
     }
 </style>

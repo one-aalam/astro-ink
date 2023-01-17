@@ -32,9 +32,10 @@ export const SITE = {
     githubUrl: 'https://github.com/one-aalam/astro-ink',
     listDrafts: true,
     image: 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png',
-    // Optional, user settings (example)
     // YT video channel Id (used in media.astro)
-    ytChannelId: ''
+    ytChannelId: '',
 }
 
+// Ink - Theme configuration
 export const PAGE_SIZE = 8
+export const USE_POST_IMG_OVERLAY = false
