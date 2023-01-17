@@ -5,6 +5,10 @@ import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
 
 const { content } = Astro.props
+
+const AUTHOR_NAME = content.author ? content.author : SITE?.author ? SITE?.author : "Author"
+const AUTHOR_TWITTER = content.authorTwitter ? content.authorTwitter : SITE?.authorTwitter ? SITE?.authorTwitter : ""
+const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorImage ? SITE?.authorImage : ""
 ---
 <!doctype html>
 <html lang="en">
@@ -17,10 +21,18 @@ const { content } = Astro.props
                 { content.tags.length > 0 && content.tags.map(tag => <a class="post__tag" href={`/tags/${tag}`} title={tag}>{tag}</a>) }
             </div>
             <h1 class="post__title">{ content.title }</h1>
-            <h5 class="post__desc">
-                <a class="post__author" href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author + "'s"} twitter`} target="_blank" rel="external">{ content.author }</a>
-                 |
-                <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}</span>
+            <h5 class={`post__desc ${AUTHOR_AVATAR ? 'flex flex-row gap-2' : ''}`}>
+                { AUTHOR_AVATAR ? <img class="avatar" src={AUTHOR_AVATAR} alt={`${ AUTHOR_NAME }'s avatar`} /> : ''}
+                <div class={AUTHOR_AVATAR ? 'flex flex-col border-l-2 pl-2' : ''}>
+                    {
+                        AUTHOR_TWITTER ?
+                            <a class="post__author" href={`https://twitter.com/${AUTHOR_TWITTER}`} title={`${AUTHOR_NAME}'s twitter`} target="_blank" rel="external">{ AUTHOR_NAME }</a>
+                            :
+                            <span class="post__author">{ AUTHOR_NAME }</span>
+                    }
+                    {!AUTHOR_AVATAR ? ' | ' : ''}
+                    <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}</span>
+                </div>
             </h5>
         </div>
         {
@@ -60,6 +72,10 @@ const { content } = Astro.props
     }
     .post__tag {
         @apply text-gray-400 hover:text-theme-primary dark:hover:text-theme-dark-primary
+    }
+
+    .avatar {
+        @apply w-12 h-12 rounded-full object-cover p-1 border-2 border-solid border-theme-dark-primary dark:border-theme-primary
     }
 
     .img__outer {
