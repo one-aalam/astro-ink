@@ -7,4 +7,5 @@ export type MediaExternallyHostedVideo = {
     host: string
     participants: Array<string>
     date: string
+    thumbnail?: string
 }

@@ -16,5 +16,5 @@ export function toFeedToJsonUrl(ytVideoChannelId: string) {
 }
 
 export function toMediaFormatFromFeed2JsonUrl(posts: { items: Array<Feed2JsonYtFeedItem>}): Array<MediaExternallyHostedVideo> {
-    return posts?.items?.length ? posts.items.map(post => ({ title: post.title, description: "", url: post.url, participants: [ ], date: post.date_published, host: post.author.name })) : []
+    return posts?.items?.length ? posts.items.map(post => ({ title: post.title, description: "", url: post.url, participants: [ ], date: post.date_published, host: post.author.name, thumbnail: `https://img.youtube.com/vi/${post.guid.substring(post.guid.lastIndexOf(':') + 1, post.guid.length)}/0.jpg` })) : []
 }
