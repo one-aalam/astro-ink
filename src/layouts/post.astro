@@ -1,11 +1,16 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import { Icon } from 'astro-icon'
 import { SITE, USE_POST_IMG_OVERLAY, USE_AUTHOR_CARD, USE_SUBSCRIPTION } from '$/config'
 import MainLayout from '$/components/MainLayout.astro'
 import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
 
+interface Props {
+    content: CollectionEntry<'blog'>['data']
+}
 const { content } = Astro.props
+
 
 const AUTHOR_NAME = content.author ? content.author : SITE?.author ? SITE?.author : "Author"
 const AUTHOR_TWITTER = content.authorTwitter ? content.authorTwitter : SITE?.authorTwitter ? SITE?.authorTwitter : ""
@@ -33,6 +38,8 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                     }
                     {!AUTHOR_AVATAR ? ' | ' : ''}
                     <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}
+                        <!-- Post Stats? -->
+                        <!-- | <Icon class="w-5 h-5 inline-block" pack="mdi" name="eye" /> 232 views | <Icon class="w-5 h-5 inline-block" pack="mdi" name="clock" /> 2 mins -->
                     </span>
                 </div>
             </h5>

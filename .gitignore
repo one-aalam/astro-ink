@@ -20,3 +20,6 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 netlify
+
+.astro
+.idea

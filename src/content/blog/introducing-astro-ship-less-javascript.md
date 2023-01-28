@@ -1,16 +1,14 @@
 ---
-layout: $/layouts/post.astro
 title: Introducing Astro - Ship Less JavaScript
-date: 2021-06-08
-image: https://images.unsplash.com/photo-1589409514187-c21d14df0d04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
+description: There's a simple secret to building a faster website — just ship less.
+tags:
+  - astro
+  - jam-stack
 author: Fred K. Schott
 authorTwitter: FredKSchott
-authorImage: https://pbs.twimg.com/profile_images/1272979356529221632/sxvncugt_400x400.jpg
+date: "2022-09-18T13:10:23.402Z"
+image: https://images.unsplash.com/photo-1589409514187-c21d14df0d04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
 category: design
-tags:
-- astro
-- jam-stack
-description: There's a simple secret to building a faster website — just ship less.
 ---
 
 Unfortunately, modern web development has been trending in the opposite direction—towards more. More JavaScript, more features, more moving parts, and ultimately more complexity needed to keep it all running smoothly.
@@ -34,3 +32,33 @@ Today I'm excited to publicly share Astro: a new kind of static site builder tha
 This post marks the first public beta release of Astro. Missing features and bugs are still to be expected at this early stage. There are still some months to go before an official 1.0 release, but there are already several fast sites built with Astro in production today. We would love your early feedback as we move towards a v1.0 release later this year.
 
 > To learn more about Astro and start building your first site, check out the project README.
+
+# Example - Syntax Highlighting
+
+## Shell(Bash)
+
+```bash
+# make a new project directory and jump into it
+mkdir my-astro-project && cd $_
+
+# create a new project with npm
+npm create astro@latest
+
+# or yarn
+yarn create astro
+
+# or pnpm
+pnpm create astro@latest
+```
+
+## Python
+
+```python
+print('hello world')
+```
+
+## Javascript
+
+```js
+const func = () => {alert("hello")}
+```

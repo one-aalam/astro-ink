@@ -7,8 +7,8 @@ import grayMatter from 'gray-matter'
     // prepare the dirs
     const srcDir = path.join(process.cwd(), 'src')
     const publicDir = path.join(process.cwd(), 'public')
-    const contentDir = path.join(srcDir, 'pages', 'blog')
-    const contentFilePattern = path.join(contentDir, '*.md')
+    const contentBlogDir = path.join(srcDir, 'content', 'blog')
+    const contentFilePattern = path.join(contentBlogDir, '*.md')
     const indexFile = path.join(publicDir, 'search-index.json')
     const getSlugFromPathname = (pathname) => path.basename(pathname, path.extname(pathname))
 
@@ -31,7 +31,7 @@ import grayMatter from 'gray-matter'
             i++
         }
         await fs.writeFile(indexFile, JSON.stringify(index))
-        console.log(`Indexed ${index.length} documents from ${contentDir} to ${indexFile}`)
+        console.log(`Indexed ${index.length} documents from ${contentBlogDir} to ${indexFile}`)
     }
 
 })();

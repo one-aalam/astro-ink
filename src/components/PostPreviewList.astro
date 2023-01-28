@@ -1,5 +1,11 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import PostPreview from './PostPreview.astro'
+
+interface Props {
+    post: CollectionEntry<'blog'>
+}
+
 const { posts } = Astro.props
 const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 ---

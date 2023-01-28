@@ -1,4 +1,5 @@
 {
+    "extends": "astro/tsconfigs/base",
     "compilerOptions": {
       "moduleResolution": "node",
       "module": "ES2022",
@@ -18,7 +19,8 @@
         "$components": ["./src/components"],
         "$": ["./src"]
       },
-      "types": ["astro/env"]
+      "types": ["astro/env"],
+      "strictNullChecks": true
     },
     "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
 }
