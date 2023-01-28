@@ -1,5 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
-const config = require('./tailwind.theme.config')
+const config = require('./tailwind.theme.config.cjs')
 /**
  * Find the applicable theme color palette, or use the default one
  */
