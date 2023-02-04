@@ -1,65 +1,74 @@
 ---
-    import '@fontsource/fira-sans'
-    import { SITE } from '$/config'
-    import '../styles/global.css'
+import "@fontsource/fira-sans";
+import { SITE } from "$/config";
+import "../styles/global.css";
 
-    export type Props = {
-        title: string
-        description: string
-        permalink: string
-        image: string
-    }
+export type Props = {
+  title: string;
+  description: string;
+  permalink: string;
+  image: string;
+};
 
-    const { title = SITE.title , description, permalink, image } = Astro.props
+const { title = SITE.title, description, permalink, image } = Astro.props;
 ---
-    <!-- Use Google Fonts, if you don't wanna prefer a self-hosted version -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<!-- Use Google Fonts, if you don't wanna prefer a self-hosted version --><!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{title}</title>
-    <meta name="title" content={title}/>
-    {description &&
-        <meta name="description" content={description}/>
-    }
+<title>{title}</title>
+<meta name="title" content={title} />
+{description && <meta name="description" content={description} />}
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link
+  rel="shortcut icon"
+  type="image/png"
+  sizes="16x16"
+  href="/favicon-16x16.png"
+/>
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"  />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="msapplication-config" content="/browserconfig.xml"/>
-    <meta name="theme-color" content="#ffffff" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="msapplication-config" content="/browserconfig.xml" />
+<meta name="theme-color" content="#ffffff" />
 
-    <!-- Open Graph Tags (Facebook) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    {permalink &&
-        <meta property="og:url" content={permalink} />
-    }
-    {description &&
-        <meta property="og:description" content={description} />
-    }
-    {image &&
-        <meta property="og:image" content={image} />
-    }
+<!-- Open Graph Tags (Facebook) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+{permalink && <meta property="og:url" content={permalink} />}
+{description && <meta property="og:description" content={description} />}
+{image && <meta property="og:image" content={image} />}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={title} />
-    {permalink &&
-        <meta property="twitter:url" content={permalink} />
-    }
-    {description &&
-        <meta property="twitter:description" content={description} />
-    }
-    {image &&
-        <meta property="twitter:image" content={image} />
-    }
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content={title} />
+{permalink && <meta property="twitter:url" content={permalink} />}
+{description && <meta property="twitter:description" content={description} />}
+{image && <meta property="twitter:image" content={image} />}
 
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+></script>
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+</script>
