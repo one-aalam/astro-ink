@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro'
 import Redis from 'ioredis'
 // In development/HMR, you can accidentally make this call numerous times and exceed your quota...
-const client = new Redis(import.meta.env.REDIS_URI)
+// const client = new Redis(import.meta.env.REDIS_URI)
 // so you can replace the above line with...
-// const client = new Map<string, number>()
+const client = new Map<string, number>()
 // the API surface we've used is largely equal
 
 // PostgreSQL, Redis
@@ -25,7 +25,6 @@ const getViewsBySlug = async (slug: string): Promise<number> =>  {
 }
 
 export const get: APIRoute = async ({ params, request}) => {
-    console.log(`slug: ${params.slug}`)
     return {
         body: JSON.stringify({
             views: await getViewsBySlug(params.slug!)

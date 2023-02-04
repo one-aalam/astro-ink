@@ -8,7 +8,7 @@ tags:
 author: Fred K Schott
 authorTwitter: FredKSchott
 date: "2023-01-25T10:23:31.210Z"
-image: https://astro.build/_astro/cover_13TvyU.avif
+image: https://astro.build/_astro/cover_Z1RYPju.webp
 category: design
 ---
 
