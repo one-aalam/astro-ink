@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import Redis from 'ioredis'
+// import Redis from 'ioredis'
 // In development/HMR, you can accidentally make this call numerous times and exceed your quota...
 // const client = new Redis(import.meta.env.REDIS_URI)
 // so you can replace the above line with...
