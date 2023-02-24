@@ -1,0 +1,18 @@
+---
+import { getEntryBySlug } from "astro:content";
+import PostLayout from '$/layouts/post.astro';
+
+// get the views count
+// get the likes count
+
+const { slug } = Astro.params
+const entry = await getEntryBySlug('blog', slug)
+
+const resp = await fetch(`${import.meta.env.SITE_URI}/api/blog/views/${slug}`)
+const stats = await resp.json()
+
+const { Content } = await entry.render()
+---
+<PostLayout content={entry.data} stats={stats}>
+    <Content/>
+</PostLayout>

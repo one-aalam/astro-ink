@@ -1,4 +1,7 @@
 ---
+export const prerender = true
+
+import { getCollection, getEntryBySlug } from 'astro:content'
 import DefaultPageLayout from '$/layouts/default.astro'
 import PostPreviewList from '$/components/PostPreviewList.astro'
 
@@ -6,7 +9,7 @@ import PostPreviewList from '$/components/PostPreviewList.astro'
 const title = 'Home'
 const description = 'Astro-Ink is a crisp, minimal, personal blog theme for Astro'
 
-const posts = await Astro.glob('./blog/*.md')
+const posts = await getCollection('blog')
 ---
 <DefaultPageLayout content={{ title, description }} showPageHeader={false}>
     <PostPreviewList posts={posts} />

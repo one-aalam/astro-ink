@@ -1,12 +1,15 @@
 ---
+export const prerender = true
+
+import { getCollection } from 'astro:content';
 import DefaultPageLayout from '$/layouts/default.astro'
 
 let title = 'All Tags'
 let description = 'All the tags used so far...'
 
 
-const allPosts = await Astro.glob('../blog/*.md');
-const tags = [...new Set([].concat.apply([], allPosts.map(post => post.frontmatter.tags)))]
+const allPosts = await getCollection('blog');
+const tags = [...new Set([].concat.apply([], allPosts.map(post => post.data.tags)))]
 ---
 
 <DefaultPageLayout content={{ title, description }}>

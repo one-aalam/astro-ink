@@ -1,6 +1,12 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import { getMonthName } from '$/utils'
-const { frontmatter: post, url } = Astro.props.post
+
+interface Props {
+    post: CollectionEntry<'blog'>
+}
+
+const { post: { data: post, slug } } = Astro.props
 ---
 <div class="post-preview">
     <div class="sm:w-20 md:w-32">
@@ -11,7 +17,7 @@ const { frontmatter: post, url } = Astro.props.post
     </div>
     <div class="flex-1">
         <h4 class="post-preview__title dark:text-theme-dark-primary">
-            <a href={url} title={post.title}>{post.title}</a>
+            <a href={`/blog/${slug}`} title={post.title}>{post.title}</a>
         </h4>
         <p class="post-preview__desc">
             {post.description}
@@ -35,6 +41,6 @@ const { frontmatter: post, url } = Astro.props.post
         @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary /* this doesn't works here */ hover:underline mb-2;
     }
     .post-preview__desc {
-        @apply text-lg leading-6 line-clamp-2 dark:text-white;
+        @apply text-lg leading-6 line-clamp-2 dark:text-white hyphens-auto;
     }
 </style>

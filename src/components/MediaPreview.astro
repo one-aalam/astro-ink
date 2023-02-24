@@ -1,5 +1,6 @@
 ---
 import { getMonthName } from '$/utils'
+import { USE_MEDIA_THUMBNAIL } from '$/config'
 const { post } = Astro.props
 ---
 <div class="post-preview">
@@ -9,7 +10,8 @@ const { post } = Astro.props
             <span class="post-preview__date__month-n-year">{ `${getMonthName(post.date)} ${new Date(post.date).getFullYear()}` }</span>
         </div>
     </div>
-    <div class="flex-1">
+    <div class={`flex-1 ${USE_MEDIA_THUMBNAIL && post.thumbnail ? 'flex flex-row gap-4' : ''}`}>
+        { USE_MEDIA_THUMBNAIL  && post.thumbnail && <img class="post-preview__media" src= {post.thumbnail} alt="media thumbnail" />}
         <div class="flex flex-col mb-2">
             <h4 class="post-preview__title dark:text-theme-dark-primary">
                 <a href={post.url} title={post.title} target="_blank">{post.title}</a>
@@ -46,6 +48,9 @@ const { post } = Astro.props
         @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary /* this doesn't works here */ hover:underline
     }
     .post-preview__desc {
-        @apply text-lg leading-6 dark:text-white line-clamp-2
+        @apply text-lg leading-6 dark:text-white line-clamp-2 hyphens-auto
+    }
+    .post-preview__media {
+        @apply w-48 rounded-md shadow-lg shadow-theme-accent-gray-light dark:shadow-theme-accent-gray-dark
     }
 </style>

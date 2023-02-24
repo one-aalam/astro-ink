@@ -1,5 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
-const config = require('./tailwind.theme.config')
+const config = require('./tailwind.theme.config.cjs')
 /**
  * Find the applicable theme color palette, or use the default one
  */
@@ -26,6 +26,13 @@ module.exports = {
                 dark: {
                     css: {
                         color: theme("colors.gray.200"),
+                        blockquote: {
+                            color: colors.dark.primary,
+                            borderColor: colors.primary
+                        },
+                        'blockquote > p::before, p::after': {
+                            color: colors.primary,
+                        },
                     },
                 },
                 DEFAULT: {
@@ -38,7 +45,8 @@ module.exports = {
                         },
                         blockquote: {
                             color: colors.primary,
-                            borderColor: colors.dark.primary
+                            fontSize: theme("fontSize.2xl"),
+                            borderColor: colors.dark.primary,
                         },
                         'blockquote > p::before, p::after': {
                             color: colors.dark.primary,
@@ -65,5 +73,6 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
+        require('tailwindcss-hyphens'),
     ]
 };

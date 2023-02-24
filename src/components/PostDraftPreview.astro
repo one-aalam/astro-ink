@@ -35,6 +35,6 @@ const { frontmatter: post, file } = Astro.props.post
         @apply text-2xl font-semibold text-theme-primary dark:text-theme-dark-primary /* this doesn't works here */ hover:underline mb-2
     }
     .post-draft-preview__desc {
-        @apply text-lg leading-6 dark:text-white line-clamp-2
+        @apply text-lg leading-6 dark:text-white line-clamp-2 hyphens-auto
     }
 </style>

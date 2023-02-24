@@ -1,10 +1,18 @@
 ---
-import { SITE, USE_POST_IMG_OVERLAY } from '$/config'
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon'
+import { SITE, USE_POST_IMG_OVERLAY, USE_AUTHOR_CARD, USE_SUBSCRIPTION } from '$/config'
 import MainLayout from '$/components/MainLayout.astro'
 import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
 
-const { content } = Astro.props
+interface Props {
+    content: CollectionEntry<'blog'>['data'],
+    stats: {
+        views: number
+    }
+}
+const { content, stats } = Astro.props
 
 const AUTHOR_NAME = content.author ? content.author : SITE?.author ? SITE?.author : "Author"
 const AUTHOR_TWITTER = content.authorTwitter ? content.authorTwitter : SITE?.authorTwitter ? SITE?.authorTwitter : ""
@@ -31,7 +39,11 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                             <span class="post__author">{ AUTHOR_NAME }</span>
                     }
                     {!AUTHOR_AVATAR ? ' | ' : ''}
-                    <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}</span>
+                    <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}
+                        <!-- Post Stats? -->
+                        | <Icon class="w-5 h-5 inline-block" pack="mdi" name="eye" /> {stats.views} views
+                        <!-- | <Icon class="w-5 h-5 inline-block" pack="mdi" name="clock" /> 2 mins -->
+                    </span>
                 </div>
             </h5>
         </div>
@@ -49,17 +61,45 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
         <Prose>
             <slot />
         </Prose>
+        <div class="post__footer">
+            { USE_AUTHOR_CARD &&
+                <br/>
+                <div class="author-card">
+                    { AUTHOR_AVATAR ? <img class="author-card__img avatar avatar--lg" src={AUTHOR_AVATAR} alt={`${ AUTHOR_NAME }'s avatar`} /> : ''}
+                    <div class="author-card__meta">
+                        {
+                            AUTHOR_TWITTER ?
+                                <a class="author-card__author" href={`https://twitter.com/${AUTHOR_TWITTER}`} title={`${AUTHOR_NAME}'s twitter`} target="_blank" rel="external">{ AUTHOR_NAME }</a>
+                                :
+                                <span class="author-card__author">{ AUTHOR_NAME }</span>
+                        }
+                        <p class="author-card__bio">{ SITE.authorBio }</p>
+                        <br/>
+                        {
+                            USE_SUBSCRIPTION ?
+                            <form action="" class="subscription-form">
+                                <label for="email"></label>
+                                <input type="email" name="email" class="flex-grow border-0 text-theme-accent-gray-dark" required="true">
+                                <button type="submit">Subscribe</button>
+                            </form> :
+                            <a class="author-card__follow-btn button" target="_blank" href={`https://twitter.com/intent/follow?screen_name=${AUTHOR_TWITTER}`}><Icon class="w-5 h-5 inline-block" pack="mdi" name="twitter" /> Follow on Twitter</a>
+                        }
+                    </div>
+                </div>
+                <br/>
+            }
+        </div>
     </MainLayout>
 </html>
 <style>
     .post__header {
-        @apply py-4 mb-1
+        @apply py-4 mb-1 text-center md:text-left
     }
     .post__title {
         @apply text-5xl font-extrabold text-theme-primary dark:text-theme-dark-primary
     }
     .post__desc {
-        @apply text-gray-500 dark:text-gray-100 hyphens-auto
+        @apply text-gray-500 dark:text-gray-100 flex justify-center text-left md:flex-none md:justify-start
     }
     .post__author {
         @apply no-underline dark:text-white hover:text-theme-primary
@@ -77,11 +117,40 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
     .avatar {
         @apply w-12 h-12 rounded-full object-cover p-1 border-2 border-solid border-theme-dark-primary dark:border-theme-primary
     }
+    .avatar--lg {
+        @apply w-32 h-32
+    }
 
     .img__outer {
         @apply relative rounded-lg shadow-xl overflow-hidden
     }
     .img_gradient {
         @apply absolute z-10 w-full bottom-0 left-0 h-full bg-gradient-to-tr from-theme-primary dark:from-theme-dark-primary
+    }
+
+    .author-card {
+        @apply text-gray-500 dark:text-gray-100 flex flex-row gap-4 justify-start text-left
+    }
+    .author-card__meta {
+        @apply border-l pl-4
+    }
+    .author-card__author {
+        @apply text-2xl mb-1
+    }
+    .author-card__bio {
+        @apply text-gray-400
+    }
+
+    .subscription-form {
+        @apply w-4/6 mt-2 flex flex-row rounded-lg overflow-hidden shadow-lg
+    }
+    .subscription-form input {
+        @apply flex-grow border-0 text-theme-accent-gray-dark
+    }
+    .subscription-form button, .button {
+        @apply px-4 py-2 uppercase font-bold text-white bg-gradient-to-tr from-theme-primary to-theme-dark-secondary dark:from-theme-dark-secondary dark:to-theme-primary
+    }
+    .author-card__follow-btn {
+        @apply rounded-md shadow-md shadow-theme-dark-secondary dark:shadow-theme-primary hover:shadow-theme-secondary hover:dark:shadow-theme-secondary hover:shadow-lg transition-all
     }
 </style>

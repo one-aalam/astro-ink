@@ -1,4 +1,6 @@
 ---
+export const prerender = true
+import { getCollection } from 'astro:content'
 import { PAGE_SIZE } from '$/config'
 import DefaultPageLayout from '$/layouts/default.astro'
 import PostPreviewList from '$/components/PostPreviewList.astro'
@@ -8,14 +10,14 @@ let title = 'Posts By Tags'
 let description = 'All the articles posted so far...'
 
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await Astro.glob('../../blog/*.md')
+  const allPosts = await getCollection('blog')
   const allTags = new Set()
   allPosts.map(post => {
-      post.frontmatter.tags && post.frontmatter.tags.map(tag => allTags.add(tag.toLowerCase()))
+      post.data.tags && post.data.tags.map(tag => allTags.add(tag.toLowerCase()))
   })
 
   return Array.from(allTags).map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag))
+    const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
     return paginate(filteredPosts, {
       params: { tag },
       pageSize: PAGE_SIZE
