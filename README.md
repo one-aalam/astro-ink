@@ -20,8 +20,7 @@
 It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme and strives to remain light, while providing the basis for a beautiful, minimal blog.
 
 ## Features
-- __Minimal, Crisp, Markdown-Blog Ready__
-- __Uses `astro 1.1.5`__ - It uses Astro's latest `1.1.5` release under the hood
+- __Minimal, Crisp, Markdown-Blog Ready__ always updated to Astro's latest (currently `2.x` release) under the hood.
 - __Svelte Ready__ - In its effort to remain light-weight, performant, and more approachable from Astro's POV, Svelte is used for interactive components like the theme switcher
 - __Modular__ - The structure is highly modular, with components doing just one job, and one job well.
 - __Astro 2.0 Content Collection + Dynamic Pages__ - It's ready with Next.js like dynamic pages, to support a tag-based classification system with paginated results, all configurable
