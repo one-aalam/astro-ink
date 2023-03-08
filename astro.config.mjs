@@ -8,6 +8,11 @@ import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/serverless";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+import node from '@astrojs/node'
+import react from '@astrojs/react'
+
+import { astroBling } from './integrations/bling';
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
@@ -31,7 +36,7 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   server: {
     // port: 3000,         // The port to run the dev server on.
   },
-  integrations: [mdx(), svelte(), tailwind({
+  integrations: [astroBling(), mdx(), svelte(), react(), tailwind({
     config: {
       applyBaseStyles: false
     }
@@ -40,12 +45,16 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
     plugins: [],
     resolve: {
       alias: {
-        '$': path.resolve(__dirname, './src')
+        '$': path.resolve(__dirname, './src'),
+        'react-dom/server': 'react-dom/server.browser',
       }
     },
     optimizeDeps: {
       allowNodeBuiltins: true
     }
   },
-  adapter: vercel()
+//   adapter: vercel()
+  adapter: node({
+    mode: 'standalone'
+  })
 });

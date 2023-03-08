@@ -22,5 +22,5 @@
       "types": ["astro/env"],
       "strictNullChecks": true
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/app/manifest.tsx", "src/app/manifest.tsx"],
 }
