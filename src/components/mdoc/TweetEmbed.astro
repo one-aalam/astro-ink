@@ -1,0 +1,27 @@
+---
+interface Props {
+  url: string
+}
+
+const { url } = Astro.props
+---
+<div
+  class="twitter-embed flex flex-col items-center justify-center relative"
+>
+  <div
+    class="twitter-tweet"
+    data-conversation="none"
+    data-theme="light"
+    data-lang="en"
+    data-dnt="true"
+  >
+    <a class="unset no-underline text-current absolute top-0 left-0" href={url}>Loading embedded tweet...</a>
+  </div>
+</div>
+
+<script
+  async
+  defer
+  src="https://platform.twitter.com/widgets.js"
+  charset="utf-8"
+></script>
