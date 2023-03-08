@@ -1,0 +1,82 @@
+---
+title: Markdoc integration for Astro Ink
+date: "2023-03-08"
+image: https://user-images.githubusercontent.com/62121649/167893184-a2b69260-ca9e-4a77-a5bc-63b8135ae5db.png
+author: Aftab Alam
+authorTwitter: aftabbuddy
+category: design
+tags:
+- architecture
+- front-end
+- spa
+description: Markdoc extends the markdown syntax you love to offer you authoring superpowers... 💪
+---
+[Markdoc](https://markdoc.dev/docs/overview) extends the markdown syntax you know and love to offer you authoring superpowers... 💪.
+
+Tags are the heart of Markdoc system. You can use native Markdoc tags, like tables(example below), conditionals, and partials...
+
+## Table in Markdoc
+{% table %}
+* Foo
+* Bar
+* Baz
+---
+*
+  ```
+  puts "Some code here."
+  ```
+*
+  {% list type="checkmark" %}
+  * Bulleted list in table
+  * Second item in bulleted list
+  {% /list %}
+* Text in a table
+---
+*
+  A "loose" list with
+
+  multiple line items
+* Test 2
+* Test 3
+---
+* Test 1
+* A cell that spans two columns {% colspan=2 %}
+{% /table %}
+
+or create custom components.
+
+## Tags available out of Ink
+Astro Ink ships with the following tags with more coming soon...
+
+### Callout
+{% callout type="note" title="Note" %}
+    lorem ipsum doler sit amet
+{% /callout %}
+
+{% callout type="error" title="Error" %}
+    lorem ipsum doler sit amet
+{% /callout %}
+
+{% callout type="warning" title="Warning" %}
+    lorem ipsum doler sit amet
+{% /callout %}
+
+{% callout type="check" title="Check" %}
+    lorem ipsum doler sit amet
+{% /callout %}
+
+### Link
+
+{% link href="/blog" title="take care" %}
+    Go to blog
+{% /link %}
+
+### Tweet Embed
+
+{% tweet url="https://twitter.com/aftabbuddy/status/1630403326406959105" %}
+
+...more tags coming soon!
+
+## Functions (from official example)
+
+¡Hola {% getCountryEmoji("spain") %}!
