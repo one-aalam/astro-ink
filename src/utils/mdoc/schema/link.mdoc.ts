@@ -1,7 +1,7 @@
 import type { Schema } from '@markdoc/markdoc';
 import { Tag } from '@markdoc/markdoc';
 
-const SITE_DOMAIN = 'aalam.in'
+const SITE_DOMAIN = 'astro-ink.vercel.app'
 function getHrefTarget(attributes) {
     const href = attributes.href;
     if (

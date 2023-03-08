@@ -6,8 +6,11 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/serverless";
+import markdoc from "@astrojs/markdoc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+import { config as markdocConfig } from './src/utils/mdoc/mdoc.config'
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
@@ -17,6 +20,7 @@ const __dirname = dirname(__filename);
 // You can disable this by removing "@ts-check" and `@type` comments below.
 
 // @ts-check
+
 
 // https://astro.build/config
 
@@ -31,7 +35,7 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   server: {
     // port: 3000,         // The port to run the dev server on.
   },
-  integrations: [mdx(), svelte(), tailwind({
+  integrations: [mdx(), markdoc(markdocConfig), svelte(), tailwind({
     config: {
       applyBaseStyles: false
     }
