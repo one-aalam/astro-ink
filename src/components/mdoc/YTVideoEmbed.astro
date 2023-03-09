@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string
+  url: string
+}
+
+const { url, title } = Astro.props;
+---
+
+<div>
+  <iframe
+    class="yt-iframe"
+    width="560"
+    height="315"
+    src={url}
+    title={title}
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  >
+  </iframe>
+</div>
+
+<style>
+  .yt-iframe {
+    @apply w-full aspect-[16/9]
+  }
+</style>

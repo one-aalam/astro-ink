@@ -1,0 +1,11 @@
+---
+import Tabs from './index.svelte'
+import type { TabItem } from './tabs'
+
+interface Props {
+    tabs: TabItem[]
+}
+
+const { tabs } = Astro.props
+---
+<Tabs tabs={tabs} client:visible/>
