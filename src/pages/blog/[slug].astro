@@ -5,6 +5,8 @@ import PostLayout from '$/layouts/post.astro';
 import Callout from "../../components/mdoc/Callout.astro";
 import Link from "../../components/mdoc/Link.astro";
 import TweetEmbed from "src/components/mdoc/TweetEmbed.astro";
+import Tabs from "../../components/mdoc/Tabs/Tabs.astro"
+import YTVideoEmbed from "src/components/mdoc/YTVideoEmbed.astro";
 
 // get the views count
 // get the likes count
@@ -21,6 +23,8 @@ const { Content } = await entry.render()
     <Content components={{
         Callout,
         Link,
-        TweetEmbed
+        TweetEmbed,
+        YTVideoEmbed,
+        Tabs
     }}/>
 </PostLayout>

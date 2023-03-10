@@ -9,8 +9,9 @@ import vercel from "@astrojs/vercel/serverless";
 import markdoc from "@astrojs/markdoc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+import { config as markdocConfig } from './src/utils/mdoc/mdoc.config';
 
-import { config as markdocConfig } from './src/utils/mdoc/mdoc.config'
+import keystatic from '@keystatic/astro';
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
@@ -23,6 +24,7 @@ import { config as markdocConfig } from './src/utils/mdoc/mdoc.config'
 
 
 // https://astro.build/config
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
@@ -39,7 +41,7 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
     config: {
       applyBaseStyles: false
     }
-  }), sitemap()],
+  }), sitemap(), react()],
   vite: {
     plugins: [],
     resolve: {
