@@ -11,11 +11,13 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/markdoc": "^0.1.0",
     "@astrojs/mdx": "^0.12.1",
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/svelte": "^2.0.0",
     "@astrojs/tailwind": "^3.0.0",
+    "@astrojs/vercel": "^3.2.1",
     "@fontsource/fira-sans": "^4.5.9",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.0",
@@ -34,9 +36,6 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.0.1",
-    "@astrojs/vercel": "^3.0.0",
-    "image-size": "^1.0.2",
     "ioredis": "^5.3.0"
   }
 }
