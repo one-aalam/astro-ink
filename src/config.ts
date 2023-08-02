@@ -25,13 +25,13 @@ export const NAV_ITEMS: NavItems = {
 
 export const SITE = {
     // Your site's detail?
-    name: 'Ink',
-    title: 'Astro - Ink',
-    description: 'Crisp, minimal, personal blog theme for Astro',
-    url: 'https://astro-ink.vercel.app',
-    githubUrl: 'https://github.com/one-aalam/astro-ink',
+    name: 'Tiff Labs',
+    title: 'Tiff Labs',
+    description: 'A blog about smart homes made with Home Assistant and home labs.',
+    url: 'https://tifflabs.org',
+    githubUrl: 'https://github.com/twhite96/astro-ss',
     listDrafts: true,
-    image: 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png',
+    image: 'https://res.cloudinary.com/twhiteblog/image/upload/v1690994638/tifflabs_evc9ih.png',
     // YT video channel Id (used in media.astro)
     ytChannelId: '',
     // Optional, user/author settings (example)
@@ -42,7 +42,7 @@ export const SITE = {
     // Author: Image external source
     authorImage: '', // Example: https://pbs.twimg.com/profile_images/1272979356529221632/sxvncugt_400x400.jpg, https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png
     // Author: Bio
-    authorBio: 'Crisp, minimal, personal blog theme for Astro. Crisp, minimal, personal blog theme for Astro. Crisp, minimal, personal blog theme for Astro'
+    authorBio: 'Home lab enthusiast and Home Assistant tinkerer.',
 }
 
 // Ink - Theme configuration

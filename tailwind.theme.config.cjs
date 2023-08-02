@@ -144,13 +144,13 @@ module.exports = {
     /**
      * Color Palette - Default/Duplicate of Purple Heart (Never remove this)
      */
-    default: {
+     default: {
         colors: {
-            primary: colors.purple[700],
-            secondary: colors.purple[800],
+            primary: '#ff0000',
+            secondary: '#ff0000',
             dark: {
-                primary: colors.purple[300],
-                secondary: colors.purple[500]
+                primary: '#ff0000',
+                secondary: '#ff0000'
             },
             accent: {
                 gray: {
