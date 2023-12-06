@@ -36,7 +36,11 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 
 
 ## How to start?
-There's not much to know about commands. Just clone this template, and start working from your clone. You have all the common NPM commands at your disposal like `dev`, `build`, etc. Refer [package.json](./package.json) to see a list of all the available commands.
+*Just clone this template*, and start working from your clone. You have all the common NPM commands at your disposal like `dev`, `build`, etc. Refer [package.json](./package.json) to see a list of all the available commands.
+
+**Note:** Use `npx degit one-aalam/astro-ink` to clone the template without any of the `git` history
+
+**Important:** Create a `.env` file before running the project for the first time. Run `mv .env.example .env` to create the `.env` file if you're on a Linux distro or Mac, and set the `SITE_URI` variable as `SITE_URI=http://localhost:3000` (where 3000 is the port at which your project is running). 
 
 ## Built with Astro Ink
 - [jamesperkins.dev](https://www.jamesperkins.dev/) - Personal site of developer, YouTube instructor [James R Perkins](https://twitter.com/james_r_perkins)
