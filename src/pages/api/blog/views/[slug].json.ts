@@ -24,10 +24,10 @@ const getViewsBySlug = async (slug: string): Promise<number> =>  {
     }
 }
 
-export const get: APIRoute = async ({ params, request}) => {
-    return {
-        body: JSON.stringify({
+export const GET: APIRoute = async ({ params, request }) => {
+    return new Response(
+        JSON.stringify({
             views: await getViewsBySlug(params.slug!)
         })
-    }
+    )
 }

@@ -17,7 +17,7 @@ export async function getStaticPaths({ paginate }) {
       post.data.tags && post.data.tags.map(tag => allTags.add(tag.toLowerCase()))
   })
 
-  return Array.from(allTags).map((tag) => {
+  return Array.from(allTags).flatMap((tag) => {
     const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
     return paginate(filteredPosts, {
       params: { tag },
@@ -34,6 +34,6 @@ const { tag } = Astro.params as Params
 ---
 
 <DefaultPageLayout content={{ title: `Posts by Tag: ${tag}`, description: `all of the articles we have posted and linked so far under the tag: ${tag}` }}>
-    <PostPreviewList posts={page.data} />
+  <PostPreviewList posts={page.data} />
     <Paginator page={page} />
 </DefaultPageLayout>
