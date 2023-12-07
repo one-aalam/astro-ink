@@ -40,7 +40,14 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 
 **Note:** Use `npx degit one-aalam/astro-ink` to clone the template without any of the `git` history
 
-**Important:** Create a `.env` file before running the project for the first time. Run `mv .env.example .env` to create the `.env` file if you're on a Linux distro or Mac, and set the `SITE_URI` variable as `SITE_URI=http://localhost:3000` (where 3000 is the port at which your project is running). 
+**Note: This template genrates `server` (SSR ready) output by default. If you want `static` builds**
+  - change `output` to `static` from `server` in [astro.config.js](./astro.config.mjs)
+  - remove `adapter: vercel()`
+  - remove the views counter [API](./src/pages/api/blog/views/[slug].ts)
+
+**Note: Before running `npm run dev` for the very first time -** 
+- Create a `.env` file by running `mv .env.example .env` (if you're on a Linux distro or Mac)
+- Set the `SITE_URI` variable as `SITE_URI=http://localhost:3000` (_where 3000 is the port at which your project is running_)
 
 ## Built with Astro Ink
 - [jamesperkins.dev](https://www.jamesperkins.dev/) - Personal site of developer, YouTube instructor [James R Perkins](https://twitter.com/james_r_perkins)

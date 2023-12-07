@@ -14,8 +14,23 @@ import { toFeedToJsonUrl, toMediaFormatFromFeed2JsonUrl } from '../utils/media-y
 let title = 'Videos & Screencasts';
 let description = 'All the great videos on Astro we could find for ya!'
 
-const response = await fetch(SITE.ytChannelId ? toFeedToJsonUrl(SITE.ytChannelId) : DEFAULT_MEDIA_URL )
+const response = await fetch(
+    // an YT channelId is present?
+    SITE.ytChannelId ? toFeedToJsonUrl(SITE.ytChannelId) : 
+    // no?
+    DEFAULT_MEDIA_URL, 
+    // Default media URL is a Github content URL currently
+    DEFAULT_MEDIA_URL ? 
+        // and we need the below header if pulling raw content from Github. If you don't need it, remove the headers
+        {
+            headers: {
+                'Accept': 'application/vnd.github.v3.raw'
+            }
+        }: 
+        {}
+)
 const allPosts = await response.json()
+
 const sortedPosts = (SITE.ytChannelId ? toMediaFormatFromFeed2JsonUrl(allPosts) : allPosts).sort((a, b) => new Date(b.date) - new Date(a.date))
 ---
 <DefaultPageLayout content={{ title, description }}>

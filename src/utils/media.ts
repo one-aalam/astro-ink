@@ -1,4 +1,4 @@
-export const DEFAULT_MEDIA_URL = 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/src/data/astro-media.json'
+export type GithubContentURL = `https://api.github.com/repos/${string}/contents/${string}`
 
 export type MediaExternallyHostedVideo = {
     title: string
@@ -9,3 +9,6 @@ export type MediaExternallyHostedVideo = {
     date: string
     thumbnail?: string
 }
+
+export const DEFAULT_MEDIA_URL: GithubContentURL = 'https://api.github.com/repos/one-aalam/astro-ink/contents/src/data/astro-media.json'
+
