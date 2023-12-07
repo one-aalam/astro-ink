@@ -1,18 +1,20 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Icon } from 'astro-icon'
-import { SITE, USE_POST_IMG_OVERLAY, USE_AUTHOR_CARD, USE_SUBSCRIPTION } from '$/config'
+import Icon from 'astro-icon';
+import { SITE, USE_POST_IMG_OVERLAY, USE_AUTHOR_CARD, USE_SUBSCRIPTION, USE_VIEW_STATS } from '$/config'
 import MainLayout from '$/components/MainLayout.astro'
 import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
+import PostStats from '$/components/PostStats.svelte'
 
 interface Props {
+    slug: string,
     content: CollectionEntry<'blog'>['data'],
-    stats: {
+    stats?: {
         views: number
     }
 }
-const { content, stats } = Astro.props
+const { content, slug } = Astro.props
 
 const AUTHOR_NAME = content.author ? content.author : SITE?.author ? SITE?.author : "Author"
 const AUTHOR_TWITTER = content.authorTwitter ? content.authorTwitter : SITE?.authorTwitter ? SITE?.authorTwitter : ""
@@ -39,9 +41,16 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                             <span class="post__author">{ AUTHOR_NAME }</span>
                     }
                     {!AUTHOR_AVATAR ? ' | ' : ''}
-                    <span class="post__date">{ new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}
-                        <!-- Post Stats? -->
-                        | <Icon class="w-5 h-5 inline-block" pack="mdi" name="eye" /> {stats.views} views
+                    <span class="post__date">
+                        <!-- post creation/updation data -->
+                        { new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))}
+                    </span>
+                    <span class="post__stats">
+                        { USE_VIEW_STATS && ` | `}
+                        { USE_VIEW_STATS && 
+                            <Icon class="w-5 h-5 inline-block" pack="mdi" name="eye" />
+                            <PostStats slug={slug} client:load /> 
+                        }
                         <!-- | <Icon class="w-5 h-5 inline-block" pack="mdi" name="clock" /> 2 mins -->
                     </span>
                 </div>
@@ -104,7 +113,7 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
     .post__author {
         @apply no-underline dark:text-white hover:text-theme-primary
     }
-    .post__date {
+    .post__date,.post__stats {
         @apply text-gray-400
     }
     .post__tags {

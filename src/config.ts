@@ -52,3 +52,5 @@ export const USE_MEDIA_THUMBNAIL = true
 
 export const USE_AUTHOR_CARD = true
 export const USE_SUBSCRIPTION = false /* works only when USE_AUTHOR_CARD is true */
+
+export const USE_VIEW_STATS = true
