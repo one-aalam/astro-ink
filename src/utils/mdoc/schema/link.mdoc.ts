@@ -1,5 +1,4 @@
-import type { Schema } from '@markdoc/markdoc';
-import { Tag } from '@markdoc/markdoc';
+import { component } from '@astrojs/markdoc/config';
 
 const SITE_DOMAIN = 'astro-ink.vercel.app'
 function getHrefTarget(attributes) {
@@ -16,9 +15,9 @@ function getHrefTarget(attributes) {
     }
 }
 
-
-export const link: Schema = {
-    render: 'Link',
+/** @type {import('@markdoc/markdoc').Schema} */
+export const link = {
+    render: component('./src/components/mdoc/Link.astro'),
     children: ["strong", "em", "s", "code", "text", "tag"],
     attributes: {
       href: {
@@ -31,13 +30,5 @@ export const link: Schema = {
       target: {
         type: String
       }
-    },
-    transform(node, config) {
-        const attributes = node.transformAttributes(config);
-        const children = node.transformChildren(config);
-
-        const target = getHrefTarget(attributes);
-
-        return new Tag("Link", { ...attributes, target }, children);
     },
 };

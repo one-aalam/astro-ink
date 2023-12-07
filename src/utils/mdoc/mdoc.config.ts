@@ -1,12 +1,11 @@
-import type { Config } from '@markdoc/markdoc';
 import { callout } from './schema/callout.mdoc';
 import { link } from './schema/link.mdoc';
 import { tweetEmbed } from './schema/tweet-embed.mdoc';
 import { tabs } from './schema/tabs.mdoc';
 import { ytEmbed } from './schema/yt-embed.mdoc';
-// import { heading } from './schema/heading.mdoc';
 
-export const config: Config = {
+/** @type {import('@markdoc/markdoc').Config} */
+export const config = {
     tags: {
         callout,
         link,

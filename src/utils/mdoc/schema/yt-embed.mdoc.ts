@@ -1,7 +1,8 @@
-import type { Schema } from '@markdoc/markdoc';
+import { component } from '@astrojs/markdoc/config';
 
-export const ytEmbed: Schema = {
-    render: 'YTVideoEmbed',
+/** @type {import('@markdoc/markdoc').Schema} */
+export const ytEmbed = {
+    render: component('./src/components/mdoc/YTVideoEmbed.astro'),
     attributes: {
       url: {
         type: String,

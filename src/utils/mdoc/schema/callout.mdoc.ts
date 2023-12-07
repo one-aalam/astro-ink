@@ -1,13 +1,14 @@
-import type { Schema } from '@markdoc/markdoc';
+import { component } from '@astrojs/markdoc/config';
 
-export const callout: Schema = {
-    render: 'Callout',
+/** @type {import('@markdoc/markdoc').Schema} */
+export const callout = {
+    render: component('./src/components/mdoc/Callout.astro'),
     children: ['paragraph', 'tag', 'list'],
     attributes: {
       type: {
         type: String,
         default: 'note goes here...',
-        matches: ['caution', 'check', 'note', 'warning'],
+        matches: ['error', 'check', 'note', 'warning'],
         errorLevel: 'critical'
       },
       title: {

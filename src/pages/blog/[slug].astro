@@ -2,14 +2,7 @@
 export const prerender = true
 
 import { getEntryBySlug, getCollection } from "astro:content";
-
 import PostLayout from '$/layouts/post.astro';
-
-import Callout from "../../components/mdoc/Callout.astro";
-import Link from "../../components/mdoc/Link.astro";
-import TweetEmbed from "../../components/mdoc/TweetEmbed.astro";
-import YTVideoEmbed from "../../components/mdoc/YTVideoEmbed.astro";
-import Tabs from "../../components/mdoc/Tabs/Tabs.astro";
 
 export async function getStaticPaths() {
     const allPosts = await getCollection('blog');
@@ -26,11 +19,5 @@ const entry = await getEntryBySlug('blog', slug!)
 const { Content } = await entry.render()
 ---
 <PostLayout slug={slug} content={entry.data} >
-    <Content components={{
-        Callout,
-        Link,
-        TweetEmbed,
-        YTVideoEmbed,
-        Tabs
-    }}/>
+    <Content/>
 </PostLayout>

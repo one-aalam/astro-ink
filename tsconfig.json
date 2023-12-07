@@ -1,11 +1,9 @@
 {
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
-      "moduleResolution": "node",
       "module": "ES2022",
       "lib": ["es2020"],
       "target": "es2019",
-      "importsNotUsedAsValues": "error",
       "isolatedModules": true,
       "resolveJsonModule": true,
       "sourceMap": true,

@@ -13,16 +13,6 @@ const __dirname = dirname(__filename);
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
-// @type-check enabled!
-// VSCode and other TypeScript-enabled text editors will provide auto-completion,
-// helpful tooltips, and warnings if your exported object is invalid.
-// You can disable this by removing "@ts-check" and `@type` comments below.
-
-// @ts-check
-
-
-// https://astro.build/config
-
 // https://astro.build/config
 export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   // root: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
@@ -34,13 +24,16 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   server: {
     // port: 3000,         // The port to run the dev server on.
   },
-  integrations: [mdx(),
-    // markdoc(), // disabled now due to an issue with Vercel builds
-    svelte(), tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), sitemap()],
+  integrations: [
+    mdx(),
+    markdoc(), // disabled now due to an issue with Vercel builds
+    svelte(), 
+    tailwind({
+      config: {
+        applyBaseStyles: false
+      }
+    }), 
+    sitemap()],
   vite: {
     plugins: [],
     resolve: {
