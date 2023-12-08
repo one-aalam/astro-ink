@@ -22,10 +22,10 @@ const COLOR_MAP: Record<CalloutType, string> = {
 
 const { title, type = 'note' } = Astro.props
 ---
-<div class="callout flex gap-2 w-full bg-gray-50 my-1 px-5 py-2 rounded-sm shadow-sm">
-    <Icon class={`w-8 h-8 inline-block ${COLOR_MAP[type]}`} pack="mdi" name={ICON_MAP[type]} />
+<div class="callout flex gap-2 w-full bg-gray-200/75 dark:bg-gray-600/75 p-4 rounded-sm shadow-sm">
+    <Icon class={`w-6 h-6 inline-block ${COLOR_MAP[type]}`} pack="mdi" name={ICON_MAP[type]} />
     <div class="copy flex flex-col">
-        <h3 class={`title m-0 ${COLOR_MAP[type]}`}>{title}</h3>
+        <h4 class={`title m-0 ${COLOR_MAP[type]}`}>{title}</h4>
         <slot/>
     </div>
 </div>
