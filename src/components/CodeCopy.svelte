@@ -31,8 +31,8 @@
     disabled={copied}
 >
     {#if copied}
-        <span transition:blur={{ amount: 50, opacity: 50 }}>&check;copied</span>
+        <span transition:blur={{ amount: 50, opacity: 50 }}>&check;Copied</span>
     {:else}
-        <span transition:fade>copy</span>
+        <span transition:fade>Copy</span>
     {/if}
 </button>
