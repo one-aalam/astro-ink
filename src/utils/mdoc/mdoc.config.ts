@@ -22,7 +22,7 @@ export const config = {
               spain: '🇪🇸',
               france: '🇫🇷',
             }
-            return countryToEmojiMap[country] ?? '🏳'
+            return countryToEmojiMap[country as string] ?? '🏳'
           },
         },
     }
