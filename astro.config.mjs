@@ -9,6 +9,7 @@ import vercel from "@astrojs/vercel/serverless";
 import markdoc from "@astrojs/markdoc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+import remarkCodeTitles from 'remark-code-titles'
 
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
@@ -25,6 +26,9 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
     shikiConfig: {
       theme: 'css-variables',
     },
+    remarkPlugins: [
+      remarkCodeTitles
+    ]
   },
   integrations: [
     mdx(), 

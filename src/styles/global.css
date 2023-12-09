@@ -15,7 +15,10 @@
 
 /** Code block **/
 .astro-code {
-	@apply relative shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20;
+	@apply relative shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20 mt-0;
+}
+.remark-code-title {
+	@apply inline-block relative top-4 px-2 pt-1 pb-5 text-sm text-theme-primary dark:text-theme-dark-primary bg-gradient-to-br from-theme-primary/30 dark:from-theme-dark-primary/30 to-theme-dark-primary/30 dark:to-theme-primary/30 rounded-t-md shadow-sm;
 }
 
 /** Shiki theme - Light/Dark mode **/
