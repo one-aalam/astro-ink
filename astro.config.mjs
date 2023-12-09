@@ -24,6 +24,12 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   server: {
     // port: 3000,         // The port to run the dev server on.
   },
+  markdown: {
+		syntaxHighlight: 'shiki',
+		shikiConfig: {
+			theme: 'css-variables',
+		},
+	},
   integrations: [
     mdx(),
     markdoc(), // disabled now due to an issue with Vercel builds

@@ -12,3 +12,38 @@
 }
 @tailwind components;
 @tailwind utilities;
+
+/** Code block **/
+.astro-code {
+	@apply shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20;
+}
+
+/** Shiki theme - Light/Dark mode **/
+
+:root {
+	--astro-code-color-text: #24292f;
+	--astro-code-color-background: #ffffff;
+	--astro-code-token-constant: #0550ae;
+	--astro-code-token-string: #24292f;
+	--astro-code-token-comment: #6e7781;
+	--astro-code-token-keyword: #cf222e;
+	--astro-code-token-parameter: #24292f;
+	--astro-code-token-function: #8250df;
+	--astro-code-token-string-expression: #0a3069;
+	--astro-code-token-punctuation: #24292f;
+	--astro-code-token-link: #000012;
+}
+
+html.dark {
+	--astro-code-color-text: #c9d1d9;
+	--astro-code-color-background: #0d1117;
+	--astro-code-token-constant: #79c0ff;
+	--astro-code-token-string: #a5d6ff;
+	--astro-code-token-comment: #8b949e;
+	--astro-code-token-keyword: #ff7b72;
+	--astro-code-token-parameter: #c9d1d9;
+	--astro-code-token-function: #d2a8ff;
+	--astro-code-token-string-expression: #a5d6ff;
+	--astro-code-token-punctuation: #c9d1d9;
+	--astro-code-token-link: #000012;
+}
