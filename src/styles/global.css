@@ -15,7 +15,7 @@
 
 /** Code block **/
 .astro-code {
-	@apply shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20;
+	@apply relative shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20;
 }
 
 /** Shiki theme - Light/Dark mode **/
