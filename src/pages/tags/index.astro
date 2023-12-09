@@ -15,7 +15,7 @@ const tags = [...new Set([].concat.apply([], allPosts.map(post => post.data.tags
 <DefaultPageLayout content={{ title, description }}>
     <ul class="tag-list">
      {tags.map((tag) => (
-        <li><a class="tag" href={`/tags/${tag}`} title={`View posts tagged under "${tag}"`}>{tag}</a></li>
+        <li><a class="tag" href={`/tags/${tag}`} title={`View posts tagged under "${tag}"`} transition:animate="slide">{tag}</a></li>
     ))}
     </ul>
 </DefaultPageLayout>

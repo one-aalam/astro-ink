@@ -1,5 +1,6 @@
 ---
 import "@fontsource/fira-sans";
+import { ViewTransitions } from 'astro:transitions';
 import { SITE } from "$/config";
 import "../styles/global.css";
 
@@ -22,6 +23,7 @@ const { title = SITE.title, description, permalink, image } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 {description && <meta name="description" content={description} />}
+<ViewTransitions />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
