@@ -8,7 +8,10 @@
     "build": "astro build",
     "check": "astro check",
     "postbuild": "node ./scripts/search/prepare-index.js",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check:type": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "biome lint src",
+    "format":"biome format src --write"
   },
   "devDependencies": {
     "@astrojs/mdx": "^2.0.0",
@@ -16,6 +19,7 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/svelte": "^5.0.0",
     "@astrojs/tailwind": "^5.0.3",
+    "@biomejs/biome": "1.4.1",
     "@fontsource/fira-sans": "^5.0.18",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
@@ -30,7 +34,6 @@
     "remark-code-titles": "^0.1.2",
     "svelte": "^4.2.8",
     "tailwindcss": "^3.3.6",
-    "tailwindcss-hyphens": "^0.1.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
