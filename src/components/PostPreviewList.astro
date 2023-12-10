@@ -3,19 +3,34 @@ import type { CollectionEntry } from 'astro:content';
 import PostPreview from './PostPreview.astro'
 
 interface Props {
-    post: CollectionEntry<'blog'>
+    posts: CollectionEntry<'blog'>
+    heading?: string
+    mode?: 'row' | 'col'
 }
 
-const { posts } = Astro.props
-const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+const { posts, heading, mode = 'col' } = Astro.props
+const sortedPosts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 ---
-<section class="post-preview__list">
+{ heading ? <h5 class={`post-preview__heading post-preview__heading--${mode} ink-h`}>{heading}</h5> : ''}
+<section class={`post-preview__list post-preview__list--${mode}`}>
     {sortedPosts.map((post) => (
-        <PostPreview post={post}/>
+        <PostPreview post={post} asCard={mode === 'row' ? true : false }/>
     ))}
 </section>
 <style>
+    .post-preview__heading {
+        @apply pl-0 sm:pl-6
+    }
+    .post-preview__heading--row {
+        @apply pl-0
+    }
     .post-preview__list {
         @apply flex flex-col gap-12
+    }
+    .post-preview__list--row {
+        @apply flex-row flex-wrap md:px-6 lg:px-0 gap-12 md:gap-8 sm:gap-10 lg:gap-12
+    }
+    .post-preview__list--col {
+        @apply flex-col gap-12
     }
 </style>
