@@ -16,6 +16,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ink specific styles */
+.ink-h {
+    @apply inline-block text-sm font-bold uppercase drop-shadow-lg py-4 tracking-wider opacity-40 dark:opacity-70
+}
+
 /** Code block **/
 .astro-code {
 	@apply relative shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20 mt-0;
