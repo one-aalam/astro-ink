@@ -13,7 +13,7 @@ const getViewsBySlug = async (slug: string): Promise<number> =>  {
         const prevValue = await client.get(slug)
         let newValue = 1
         if(prevValue) {
-            newValue = parseInt(prevValue) + 1
+            newValue = parseInt(prevValue + '') + 1
             await client.set(slug, newValue)
         } else {
             await client.set(slug, 1)

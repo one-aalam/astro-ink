@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { SITE } from '../config'
 
 const allPosts = await getCollection('blog')
-const sortedPosts = Object.values(allPosts).sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+const sortedPosts = Object.values(allPosts).sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 
 export const get = () => rss({
     // `<title>` field in output xml
