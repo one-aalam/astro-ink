@@ -7,6 +7,9 @@
             header, footer {
                 @apply text-gray-400 border-gray-700;
             }
+			strong {
+				@apply text-inherit
+			}
 		}
 	}
 }
