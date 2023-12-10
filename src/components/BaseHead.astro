@@ -55,8 +55,6 @@ const { title = SITE.title, description, permalink, image } = Astro.props;
 {description && <meta property="twitter:description" content={description} />}
 {image && <meta property="twitter:image" content={image} />}
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-></script>
 <script is:inline>
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {

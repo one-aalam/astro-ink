@@ -39,6 +39,7 @@
   "dependencies": {
     "@astrojs/markdoc": "^0.8.0",
     "@astrojs/vercel": "^6.0.1",
+    "astro-decap-cms-oauth": "^0.2.9",
     "ioredis": "^5.3.2"
   }
 }
