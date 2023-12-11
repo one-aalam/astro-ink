@@ -5,7 +5,10 @@ backend:
   repo: one-aalam/astro-ink # change this to your repo
   site_domain: astro-ink.vercel.app # change this to your domain
   base_url: https://astro-ink.vercel.app # change this to your prod URL
+  auth_scope: repo
   auth_endpoint: oauth
+  display_url: https://astro-ink.vercel.app
+  logo_url: https://astro-ink.vercel.app/assets/logo.svg
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
