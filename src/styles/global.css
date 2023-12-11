@@ -21,6 +21,18 @@
     @apply inline-block text-sm font-bold uppercase drop-shadow-lg py-4 tracking-wider opacity-40 dark:opacity-70
 }
 
+::-webkit-scrollbar {
+	@apply w-3;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-theme-dark-primary dark:bg-theme-primary bg-opacity-20;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-theme-primary dark:bg-theme-dark-primary bg-opacity-20 dark:bg-opacity-100 shadow-2xl rounded-full;
+}
+
 /** Code block **/
 .astro-code {
 	@apply relative shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20 mt-0;
