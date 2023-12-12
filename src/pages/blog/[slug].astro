@@ -17,9 +17,10 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const entry = await getEntryBySlug('blog', slug!)
 
+const { id, collection, data } = entry
 const { Content } = await entry.render()
 ---
-<PostLayout slug={slug} content={entry.data} >
+<PostLayout meta={{id, collection, slug }} content={data} >
     <Content components={{
         code: Code
     }}/>
