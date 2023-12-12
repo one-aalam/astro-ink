@@ -1,0 +1,51 @@
+---
+export type BadgeType = 'success' | 'danger' | 'note' | 'warning' | 'tip'
+
+interface Props {
+    text: string
+    type: BadgeType
+    outline?: boolean
+}
+
+const { text, type = 'note', outline = false } = Astro.props
+---
+<span class:list={['ink-badge', `ink-badge__${type}${outline && '--outline'}`, `ink-badge__${type}`]} set:html={text} />
+
+<style>
+    .ink-badge {
+        @apply inline-block font-xs font-normal text-inherit bg-theme-primary dark:bg-theme-dark-primary px-3 py-1 border-1 rounded-b-md 
+    }
+    .ink-badge--outline {
+        @apply bg-transparent
+    }
+    .ink-badge__success {
+        @apply bg-green-300
+    }
+    .ink-badge__danger {
+        @apply bg-red-300
+    }
+    .ink-badge__note {
+        @apply bg-gray-300
+    }
+    .ink-badge__warning {
+        @apply bg-orange-300
+    }
+    .ink-badge__tip {
+        @apply bg-yellow-300
+    }
+    .ink-badge--outline.ink-badge__success {
+        @apply border-green-300
+    }
+    .ink-badge--outline.ink-badge__danger {
+        @apply border-red-300
+    }
+    .ink-badge--outline.ink-badge__note {
+        @apply border-gray-300
+    }
+    .ink-badge--outline.ink-badge__warning {
+        @apply border-orange-300
+    }
+    .ink-badge--outline.ink-badge__tip {
+        @apply border-yellow-300
+    }
+</style>
