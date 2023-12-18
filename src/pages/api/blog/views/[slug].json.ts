@@ -1,33 +1,19 @@
-import type { APIRoute } from 'astro'
-// import Redis from 'ioredis'
-// In development/HMR, you can accidentally make this call numerous times and exceed your quota...
-// const client = new Redis(import.meta.env.REDIS_URI)
-// so you can replace the above line with...
-const client = new Map<string, number>()
-// the API surface we've used is largely equal
+import type { APIRoute } from "astro";
+// import { getViewsBySlug } from "src/utils/views/turso";
+// import { getViewsBySlug } from "src/utils/views/ioredis";
+import { getViewsBySlug } from "src/utils/views/in-memory";
 
-// PostgreSQL, Redis
-// Supabase,
-const getViewsBySlug = async (slug: string): Promise<number> =>  {
-    if(slug) {
-        const prevValue = await client.get(slug)
-        let newValue = 1
-        if(prevValue) {
-            newValue = parseInt(prevValue) + 1
-            await client.set(slug, newValue)
-        } else {
-            await client.set(slug, 1)
-        }
-        return newValue
-    } else {
-        return 0
-    }
-}
+// In development/HMR, you can accidentally make this call numerous times and exceed your quota...
+// thus, the in-memory version of `getViewsBySlug` is used
+
+// When deploying, and you have either `ioredis` or `turso` configured with your cloned version - 
+// please uncomment the respective line
+
 
 export const GET: APIRoute = async ({ params, request }) => {
-    return new Response(
-        JSON.stringify({
-            views: await getViewsBySlug(params.slug!)
-        })
-    )
-}
+	return new Response(
+		JSON.stringify({
+			views: params.slug ? await getViewsBySlug(params.slug) : 0,
+		}),
+	);
+};

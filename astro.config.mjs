@@ -9,36 +9,43 @@ import vercel from "@astrojs/vercel/serverless";
 import markdoc from "@astrojs/markdoc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+import remarkCodeTitles from 'remark-code-titles'
+import decapCmsOauth from "astro-decap-cms-oauth";
 
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
 
 // https://astro.build/config
 export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
-  // root: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
-  // outDir: './dist',       // When running `astro build`, path to final static output
-  // publicDir: './public',   // A folder of static files Astro will copy to the root. Useful for favicons, images, and other files that don’t need processing.
   output: 'server',
-  site: 'https://astro-ink.vercel.app',
-  // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  site: 'https://astro-ink.vercel.app', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   server: {
-    // port: 3000,         // The port to run the dev server on.
+    // port: 4321, // The port to run the dev server on.
+  },
+  markdown: {
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      theme: 'css-variables',
+    },
+    remarkPlugins: [
+      remarkCodeTitles
+    ]
   },
   integrations: [
-    mdx(),
-    markdoc(), // disabled now due to an issue with Vercel builds
+    mdx(), 
+    markdoc(),
     svelte(), 
     tailwind({
-      config: {
-        applyBaseStyles: false
-      }
+      applyBaseStyles: false,
     }), 
-    sitemap()],
+    sitemap(),
+    decapCmsOauth()
+  ],
   vite: {
     plugins: [],
     resolve: {
       alias: {
-        '$': path.resolve(__dirname, './src')
+        $: path.resolve(__dirname, './src')
       }
     },
     optimizeDeps: {

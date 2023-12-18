@@ -3,7 +3,7 @@ import { toTitleCase } from '$/utils'
 import { NAV_ITEMS } from '$/config'
 ---
 <nav class="nav py-3">
-    <ul class="nav-list dark:text-theme-dark-secondary">
+    <ul class="nav-list dark:text-theme-dark-secondary" transition:animate="fade">
          {
             Object.keys(NAV_ITEMS).map(navItemKey => <li>
                 <a class:list={[

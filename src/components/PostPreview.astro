@@ -3,13 +3,14 @@ import type { CollectionEntry } from 'astro:content'
 import { getMonthName } from '$/utils'
 
 interface Props {
-    post: CollectionEntry<'blog'>
+    post: CollectionEntry<'blog'>,
+    asCard?: boolean
 }
 
-const { post: { data: post, slug } } = Astro.props
+const { post: { data: post, slug }, asCard = false } = Astro.props
 ---
-<div class="post-preview">
-    <div class="sm:w-20 md:w-32">
+<div class={`post-preview ${asCard && 'post-preview--card'}`}>
+    <div class="post-preview__date-box">
         <div class="post-preview__date">
             <span class="post-preview__date__day">{ new Date(post.date).getDate() }</span>
             <span class="post-preview__date__month-n-year">{ `${getMonthName(post.date)} ${new Date(post.date).getFullYear()}` }</span>
@@ -26,13 +27,28 @@ const { post: { data: post, slug } } = Astro.props
 </div>
 <style>
     .post-preview {
-        @apply  flex gap-6;
+        @apply flex gap-6;
+    }
+    .post-preview--card {
+        @apply flex flex-col-reverse gap-4 sm:w-72 md:w-60 lg:w-64;
+    }
+    .post-preview__date-box {
+        @apply sm:w-20 md:w-32
+    }
+    .post-preview--card .post-preview__date-box {
+        @apply w-full
     }
     .post-preview__date {
         @apply flex flex-col w-full text-center;
     }
+    .post-preview--card .post-preview__date {
+        @apply text-left flex flex-row gap-1
+    }
     .post-preview__date__day {
         @apply text-6xl font-semibold text-gray-500 dark:text-gray-300;
+    }
+    .post-preview--card .post-preview__date__day {
+        @apply text-4xl
     }
     .post-preview__date__month-n-year {
         @apply text-gray-400;

@@ -6,15 +6,21 @@ import MainLayout from '$/components/MainLayout.astro'
 import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
 import PostStats from '$/components/PostStats.svelte'
+import EditUrl from '$/components/EditLink.astro'
+
 
 interface Props {
-    slug: string,
+    meta?: {
+        id: string,
+        slug: string,
+        collection: string
+    },
     content: CollectionEntry<'blog'>['data'],
     stats?: {
         views: number
     }
 }
-const { content, slug } = Astro.props
+const { content, meta } = Astro.props
 
 const AUTHOR_NAME = content.author ? content.author : SITE?.author ? SITE?.author : "Author"
 const AUTHOR_TWITTER = content.authorTwitter ? content.authorTwitter : SITE?.authorTwitter ? SITE?.authorTwitter : ""
@@ -49,7 +55,7 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                         { USE_VIEW_STATS && ` | `}
                         { USE_VIEW_STATS && 
                             <Icon class="w-5 h-5 inline-block" pack="mdi" name="eye" />
-                            <PostStats slug={slug} client:load /> 
+                            <PostStats slug={meta?.slug} client:load /> 
                         }
                         <!-- | <Icon class="w-5 h-5 inline-block" pack="mdi" name="clock" /> 2 mins -->
                     </span>
@@ -96,6 +102,10 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                     </div>
                 </div>
                 <br/>
+            }
+            {
+                meta?.collection && meta?.id && 
+                    <EditUrl label=" Suggest changes on GitHub" editUrl={`${SITE.githubUrl}/tree/main/src/content/${meta?.collection}/${meta?.id}`}/>
             }
         </div>
     </MainLayout>

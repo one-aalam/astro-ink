@@ -8,7 +8,11 @@
     "build": "astro build",
     "check": "astro check",
     "postbuild": "node ./scripts/search/prepare-index.js",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check:type": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "biome lint src",
+    "format": "biome format src --write",
+    "cz": "cz"
   },
   "devDependencies": {
     "@astrojs/mdx": "^2.0.0",
@@ -16,6 +20,7 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/svelte": "^5.0.0",
     "@astrojs/tailwind": "^5.0.3",
+    "@biomejs/biome": "1.4.1",
     "@fontsource/fira-sans": "^5.0.18",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
@@ -23,18 +28,27 @@
     "@types/node": "^18.19.3",
     "astro": "^4.0.3",
     "astro-icon": "^0.8.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "globby": "^14.0.0",
     "gray-matter": "^4.0.3",
     "lunr": "^2.3.9",
     "mdx": "^0.3.1",
+    "remark-code-titles": "^0.1.2",
     "svelte": "^4.2.8",
     "tailwindcss": "^3.3.6",
-    "tailwindcss-hyphens": "^0.1.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.8.0",
     "@astrojs/vercel": "^6.0.1",
+    "@libsql/client": "^0.4.0-pre.5",
+    "astro-decap-cms-oauth": "^0.2.9",
     "ioredis": "^5.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

@@ -7,8 +7,66 @@
             header, footer {
                 @apply text-gray-400 border-gray-700;
             }
+			strong {
+				@apply text-inherit
+			}
 		}
 	}
 }
 @tailwind components;
 @tailwind utilities;
+
+/* Ink specific styles */
+.ink-h {
+    @apply inline-block text-sm font-bold uppercase drop-shadow-lg py-4 tracking-wider opacity-40 dark:opacity-70
+}
+
+::-webkit-scrollbar {
+	@apply w-3;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-theme-dark-primary dark:bg-theme-primary bg-opacity-20;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-theme-primary dark:bg-theme-dark-primary bg-opacity-20 dark:bg-opacity-100 shadow-2xl rounded-full;
+}
+
+/** Code block **/
+.astro-code {
+	@apply relative shadow-inner shadow-theme-primary/20 dark:shadow-theme-dark-primary/20 mt-0;
+}
+.remark-code-title {
+	@apply inline-block relative top-4 px-2 pt-1 pb-5 text-sm text-theme-primary dark:text-theme-dark-primary bg-gradient-to-br from-theme-primary/30 dark:from-theme-dark-primary/30 to-theme-dark-primary/30 dark:to-theme-primary/30 rounded-t-md shadow-sm;
+}
+
+/** Shiki theme - Light/Dark mode **/
+
+:root {
+	--astro-code-color-text: #24292f;
+	--astro-code-color-background: #ffffff;
+	--astro-code-token-constant: #0550ae;
+	--astro-code-token-string: #24292f;
+	--astro-code-token-comment: #6e7781;
+	--astro-code-token-keyword: #cf222e;
+	--astro-code-token-parameter: #24292f;
+	--astro-code-token-function: #8250df;
+	--astro-code-token-string-expression: #0a3069;
+	--astro-code-token-punctuation: #24292f;
+	--astro-code-token-link: #000012;
+}
+
+html.dark {
+	--astro-code-color-text: #c9d1d9;
+	--astro-code-color-background: #0d1117;
+	--astro-code-token-constant: #79c0ff;
+	--astro-code-token-string: #a5d6ff;
+	--astro-code-token-comment: #8b949e;
+	--astro-code-token-keyword: #ff7b72;
+	--astro-code-token-parameter: #c9d1d9;
+	--astro-code-token-function: #d2a8ff;
+	--astro-code-token-string-expression: #a5d6ff;
+	--astro-code-token-punctuation: #c9d1d9;
+	--astro-code-token-link: #000012;
+}
