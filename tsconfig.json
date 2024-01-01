@@ -20,5 +20,5 @@
       "types": ["astro/env"],
       "strictNullChecks": true
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/pages/rss.xml.js"],
 }
