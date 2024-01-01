@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection('blog')
   const allTags = new Set<string>()
   allPosts.map(post => {
-      post.data.tags && post.data.tags.map(tag => allTags.add(tag.toLowerCase()))
+      post.data.tags && post.data.tags.map(tag => allTags.add(tag))
   })
 
   return Array.from(allTags).flatMap((tag) => {
