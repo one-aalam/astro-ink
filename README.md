@@ -40,7 +40,7 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 
 **Note:** Use `npx degit one-aalam/astro-ink` to clone the template without any of the `git` history
 
-**Note: This template genrates `server` (SSR ready) output by default. If you want `static` builds**
+**Note: This template generates `server` (SSR ready) output by default. If you want `static` builds**
   - change `output` to `static` from `server` in [astro.config.js](./astro.config.mjs)
   - remove `adapter: vercel()`
   - remove the views counter [API](./src/pages/api/blog/views/[slug].json.ts)
